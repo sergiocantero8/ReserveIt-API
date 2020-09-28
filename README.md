@@ -9,9 +9,9 @@ La idea de la aplicación es desarrollar un sistema de reservas online para pist
 ## Documentación
 En el directorio [docs](https://github.com/sergiocantero8/ReserveIt-API/tree/master/docs) se encuentran ficheros que describen:
 
-+ [git_config.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/doc/git_config.md). Configuración correcta de git
++ [git_config.md](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/git_config.md). Configuración correcta de git
 
-+ [herramientas.md](https://github.com/sergiovp/IV-OrganizeAndGo/blob/master/doc/herramientas.md). Una justificación de la elección de las herramientas utilizadas 
++ [herramientas.md](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/herramientas.md). Una justificación de la elección de las herramientas utilizadas 
 
 ## Autor
 
