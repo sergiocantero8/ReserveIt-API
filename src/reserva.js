@@ -3,7 +3,7 @@ function reserva () {
     var duracion;
     var fecha;
     var precio;
-    var identificador;
+    var id;
     var ubicacion;
     var usuario;
 }
