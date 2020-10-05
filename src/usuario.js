@@ -1,4 +1,5 @@
 function usuario () {
+
     var nombre;
     var apellidos;
     var telefono;
