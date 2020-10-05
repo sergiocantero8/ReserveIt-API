@@ -7,8 +7,7 @@ function usuario () {
     var dni;
     var fecha_nacimiento;
     var lugar_nacimiento;
-
-
+	 var nacionalidad;
 
 
 }
