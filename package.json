@@ -1,0 +1,31 @@
+{
+  "name": "reserveit-api",
+  "version": "1.0.0",
+  "description": "Proyecto de la asignatura IV",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergiocantero8/ReserveIt-API.git"
+  },
+  "keywords": [
+    "nodejs",
+    "español",
+    "proyecto"
+  ],
+  "author": "Sergio Azañon Cantero",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/sergiocantero8/ReserveIt-API/issues"
+  },
+  "homepage": "https://github.com/sergiocantero8/ReserveIt-API#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mariadb": "^2.4.2"
+  }
+}
