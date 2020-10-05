@@ -1,7 +1,7 @@
 # Proyecto de Infraestructura Virtual: ReserveIt-API
 
 ## Descripción
-La idea de la aplicación es desarrollar un sistema de reservas online para pistas deportivas (fútbol, tenis, pádel...etc). La app también será capaz de decirte precios, ubicación, una breve descripción de los complejos deportivos, tu historial de reservas...etc.
+La idea de la aplicación es desarrollar un sistema de reservas online para pistas deportivas (fútbol, tenis, pádel...etc). La app también será capaz de decirte precios, ubicación, una breve descripción de los complejos deportivos, tu historial de reservas y más funcionalidades.
 
 ## Herramientas
 Estas son las herramientas principales que voy a utilizar en el proyecto, para ver con más detalle el por qué he utilizado cada una pincha [aquí](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/herramientas.md)
