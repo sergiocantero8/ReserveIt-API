@@ -26,6 +26,5 @@ En el directorio [docs](https://github.com/sergiocantero8/ReserveIt-API/tree/mas
 
 + [herramientas.md](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/herramientas.md). Una justificación de la elección de las herramientas utilizadas 
 
-# Licencia :scroll:
 ---
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
