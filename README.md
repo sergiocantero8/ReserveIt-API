@@ -24,9 +24,9 @@ En el directorio [docs](https://github.com/sergiocantero8/ReserveIt-API/tree/mas
 
 + [Pasos para la realizacion del proyecto](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/pasos.md)
 
-+ [git_config.md](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/git_config.md). Configuración correcta de git
++ [Configuración correcta de git](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/git_config.md). Configuración correcta de git
 
-+ [herramientas.md](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/herramientas.md). Una justificación de la elección de las herramientas utilizadas 
++ [Justificación de las herramientas utilizadas](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/herramientas.md).
 
 ---
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
