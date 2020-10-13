@@ -20,6 +20,8 @@ Para ver las historias de usuario que se llevan a cabo en el proyecto, pincha [a
 ## Documentación :page_facing_up:
 En el directorio [docs](https://github.com/sergiocantero8/ReserveIt-API/tree/master/docs) se encuentran ficheros que describen:
 
++ [Código fuente del proyecto](https://github.com/sergiocantero8/ReserveIt-API/blob/master/src)
+
 + [Pasos para la realizacion del proyecto](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/pasos.md)
 
 + [git_config.md](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/git_config.md). Configuración correcta de git
