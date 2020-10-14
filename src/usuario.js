@@ -48,3 +48,5 @@ class Usuario {
         return this.nacionalidad;
     }
 }
+
+module.exports = Usuario;
