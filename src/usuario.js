@@ -16,37 +16,37 @@ class Usuario {
 
     }
 
-    get nombre() {
+    get_nombre() {
         return this.nombre;
     }
 
-    get apellidos() {
+    get_apellidos() {
         return this.apellidos;
     }
 
-    get telefono() {
+    get_telefono() {
         return this.telefono;
     }
 
-    get email() {
+    get_email() {
         return this.email;
     }
 
-    get dni() {
+    get_dni() {
         return this.dni;
     }
 
-    get fecha_nacimiento() {
+    get_fecha_nacimiento() {
         return this.fecha_nacimiento;
     }
 
-    get lugar_nacimiento() {
+    get_lugar_nacimiento() {
         return this.lugar_nacimiento;
     }
 
-    get nacionalidad(){
+    get_nacionalidad(){
         return this.nacionalidad;
     }
 }
 
-module.exports = Usuario;
+module.exports.Usuario = Usuario;
