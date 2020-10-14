@@ -42,3 +42,5 @@ class Reserva {
         return this.usuario;
     }
 }
+
+module.exports = Reserva;
