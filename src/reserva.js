@@ -14,33 +14,33 @@ class Reserva {
 
     }
 
-    get tipo() {
+    get_tipo() {
         return this.tipo;
     }
 
-    get duracion() {
+    get_duracion() {
         return this.duracion;
     }
 
-    get fecha() {
+    get_fecha() {
         return this.fecha;
     }
 
-    get precio() {
+    get_precio() {
         return this.precio;
     }
 
-    get id() {
+    get_id() {
         return this.id;
     }
 
-    get ubicacion() {
+    get_ubicacion() {
         return this.ubicacion;
     }
 
-    get usuario() {
+    get_usuario() {
         return this.usuario;
     }
 }
 
-module.exports = Reserva;
+module.exports.Reserva = Reserva;
