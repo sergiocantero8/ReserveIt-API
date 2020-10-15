@@ -1,2 +1,7 @@
 entidad: src/usuario.js
-entidad: src/reserva.js
+
+lenguaje: javascript
+
+test: test/run.js
+
+taskfile: package.json
