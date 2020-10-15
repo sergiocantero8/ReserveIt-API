@@ -31,8 +31,9 @@ class GestorReservas {
         }
     }
 
-    datos_reserva(Usuario, Reserva){
-
+    // Para que un usuario pueda consultar los datos de sus reservas 
+    ver_datosreserva(unusuario){
+        
     }
 }
 
