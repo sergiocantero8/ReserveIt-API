@@ -11,7 +11,10 @@ ungestor.add_datosreserva(unusuario,unareserva);
 
 ungestor.ver_todosdatosreserva();
 
-ungestor.ver_datosreserva(unusuario);
+let misreservas = ungestor.ver_datosreserva(unusuario);
+
+if(misreservas.length != 0)
+    console.log(misreservas[0].get_ubicacion());
 
 console.log(unusuario.get_nombre());
 console.log(unareserva.get_usuario());
