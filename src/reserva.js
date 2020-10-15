@@ -41,6 +41,11 @@ class Reserva {
     get_usuario() {
         return this.usuario;
     }
+
+    get_infocompleta(){
+        return "Tipo de pista: " + this.tipo + " Duracion: " + this.duracion + " mins"+ " Fecha: " + this.fecha + " Precio: " + this.precio + " euros" + 
+                " ID: " + this.id + " Ubicacion: " + this.ubicacion + " Usuario: " + this.usuario;
+    }
 }
 
 module.exports.Reserva = Reserva;

@@ -1,9 +1,10 @@
+const Reserva = require ('./reserva.js')
 
 /* Clase que representa los datos del usuario del sistema */
 
 class Usuario {
 
-
+    // Constructor de la clase
     constructor(nombre, apellidos, telefono, email, dni, fecha_nacimiento, lugar_nacimiento, nacionalidad){
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -16,6 +17,8 @@ class Usuario {
 
     }
 
+    // Getters
+    // ************************************
     get_nombre() {
         return this.nombre;
     }
@@ -47,6 +50,14 @@ class Usuario {
     get_nacionalidad(){
         return this.nacionalidad;
     }
+
+    get_nombreyapellidos(){
+        return this.nombre + ' ' + this.apellidos;
+    }
+
+    //******************************************** */
+
 }
+
 
 module.exports.Usuario = Usuario;
