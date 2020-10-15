@@ -15,15 +15,17 @@ Estas son las herramientas principales que voy a utilizar en el proyecto, para v
 
 ## Historias de usuario :busts_in_silhouette:
 Para ver todas las historias de usuario que se llevan a cabo en el proyecto, pincha [aquí](https://github.com/sergiocantero8/ReserveIt-API/labels/user-stories)
-+ [HU1](https://github.com/sergiocantero8/ReserveIt-API/issues/3)
-+ [HU2](https://github.com/sergiocantero8/ReserveIt-API/issues/8)
-+ [HU3](https://github.com/sergiocantero8/ReserveIt-API/issues/9)
++ [HU1 - Como usuario, quiero consultar las reservas que tengo activas ](https://github.com/sergiocantero8/ReserveIt-API/issues/3)
++ [HU2 - Como usuario, quiero reservar en un polideportivo](https://github.com/sergiocantero8/ReserveIt-API/issues/8)
++ [HU3 - Como usuario, quiero ver si la pista está libre a una hora determinada](https://github.com/sergiocantero8/ReserveIt-API/issues/9)
 
 
 ## Documentación :page_facing_up:
 En el directorio [docs](https://github.com/sergiocantero8/ReserveIt-API/tree/master/docs) se encuentran ficheros que describen:
 
 + [Código fuente del proyecto](https://github.com/sergiocantero8/ReserveIt-API/blob/master/src)
+
++ [Tests del proyecto](https://github.com/sergiocantero8/ReserveIt-API/tree/master/test)
 
 + [Pasos para la realizacion del proyecto](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/pasos.md)
 
@@ -32,12 +34,25 @@ En el directorio [docs](https://github.com/sergiocantero8/ReserveIt-API/tree/mas
 + [Justificación de las herramientas utilizadas](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/herramientas.md).
 
 
-## Tests y dependencias
-Para instalar las dependencias primero clona este repositorio con la orden:
+## Tests y dependencias :heavy_check_mark:
+Antes de todo, debes clonar este repositorio, puedes descargartelo o clonar con la orden:
 
 ```
  $ git clone https://github.com/sergiocantero8/ReserveIt-API
 ```
+Para las dependencias, npm install leerá del archivo package.json para instalar todas las dependencias que encuentre. Si el paquete ya está instalado intentará actualizarlo. Ejecuta:
 
+```
+ $ npm install
+```
+
+Para la realización de los tests he utilizado los frameworks [Mocha](https://mochajs.org/) y [Chai](https://www.chaijs.com/), ya que al ser de mis primeros testeos, he querido buscar frameworks populares y estables.
+
+Para la ejecución de los tests:
+```
+ $ npm test
+```
+
+Todos los tests realizados se encuentran [aquí](https://github.com/sergiocantero8/ReserveIt-API/tree/master/test)
 ---
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
