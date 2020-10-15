@@ -53,6 +53,5 @@ Para la ejecución de los tests:
  $ npm test
 ```
 
-Todos los tests realizados se encuentran [aquí](https://github.com/sergiocantero8/ReserveIt-API/tree/master/test)
 ---
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
