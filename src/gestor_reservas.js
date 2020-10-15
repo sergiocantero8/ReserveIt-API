@@ -1,0 +1,39 @@
+const usuario = require ('./usuario.js')
+const reserva = require ('./reserva.js')
+
+// Esta clase gestiona las reservas de los usuarios y añade o elimina reservas
+class GestorReservas {
+
+    // El gestor empieza teniendo una lista de reservas y usuarios vacía
+    constructor(){
+        this.listareservas = [];
+        this.listausuarios= [];
+    }
+
+    // Añade los datos de una reserva y un usuario
+    add_datosreserva(unusuario,unareserva){
+
+        this.listareservas.push(unareserva);
+        this.listausuarios.push(unusuario);
+       
+    }
+
+    // Todos los datos de reserva que tiene el gestor
+    ver_todosdatosreserva(){
+        
+        if(this.listareservas.length != 0){
+            for (var i in this.listareservas) {
+                console.log(this.listareservas[i].get_infocompleta());
+            }
+        }
+        else{
+            console.log("No hay ninguna reserva");
+        }
+    }
+
+    datos_reserva(Usuario, Reserva){
+
+    }
+}
+
+module.exports.GestorReservas = GestorReservas;
