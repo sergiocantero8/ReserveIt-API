@@ -21,7 +21,8 @@ Para ver todas las historias de usuario que se llevan a cabo en el proyecto, pin
 
 
 ## Documentación :page_facing_up:
-En el directorio [docs](https://github.com/sergiocantero8/ReserveIt-API/tree/master/docs) se encuentran ficheros que describen:
+
+Enlaces del proyecto: 
 
 + [Código fuente del proyecto](https://github.com/sergiocantero8/ReserveIt-API/blob/master/src)
 
