@@ -35,8 +35,10 @@ class GestorReservas {
     ver_datosreserva(unusuario){
         var misreservas=[];
 
+        // Recorro mi lista de usuarios
         for (var i in this.listausuarios){
 
+            // Si el usuario que tengo en mi lista es el mismo que quiere consultar la reserva
             if(this.listausuarios[i].get_dni() == unusuario.get_dni()){
                 for (var j in this.listareservas)
                     if(this.listareservas[j].get_usuario() == unusuario.get_nombreyapellidos())
