@@ -10,6 +10,14 @@ class GestorReservas {
         this.listausuarios= [];
     }
 
+    get_numreservas(){
+        return this.listareservas.length;
+    }
+
+    get_numusuarios(){
+        return this.listausuarios.length;
+    }
+
     // Añade los datos de una reserva y un usuario
     add_datosreserva(unusuario,unareserva){
 
