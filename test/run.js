@@ -93,6 +93,7 @@ describe('Testeando gets de reserva: ', function() {
   it('get_tipo debe devolver el tipo de pista correcto', function(){
 
     assert.equal(unareserva.get_tipo(), "Padel");
+    
   });
 
 
