@@ -14,7 +14,10 @@ Estas son las herramientas principales que voy a utilizar en el proyecto, para v
 + Framework: [Express](https://expressjs.com/es/)
 
 ## Historias de usuario :busts_in_silhouette:
-Para ver las historias de usuario que se llevan a cabo en el proyecto, pincha [aquí](https://github.com/sergiocantero8/ReserveIt-API/labels/user-stories)
+Para ver todas las historias de usuario que se llevan a cabo en el proyecto, pincha [aquí](https://github.com/sergiocantero8/ReserveIt-API/labels/user-stories)
++ [HU1](https://github.com/sergiocantero8/ReserveIt-API/issues/3)
++ [HU2](https://github.com/sergiocantero8/ReserveIt-API/issues/8)
++ [HU3](https://github.com/sergiocantero8/ReserveIt-API/issues/9)
 
 
 ## Documentación :page_facing_up:
@@ -27,6 +30,14 @@ En el directorio [docs](https://github.com/sergiocantero8/ReserveIt-API/tree/mas
 + [Configuración correcta de git](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/git_config.md).
 
 + [Justificación de las herramientas utilizadas](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/herramientas.md).
+
+
+## Tests y dependencias
+Para instalar las dependencias primero clona este repositorio con la orden:
+
+```
+ $ git clone https://github.com/sergiocantero8/ReserveIt-API
+```
 
 ---
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
