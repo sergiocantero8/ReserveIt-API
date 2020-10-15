@@ -33,7 +33,20 @@ class GestorReservas {
 
     // Para que un usuario pueda consultar los datos de sus reservas 
     ver_datosreserva(unusuario){
-        
+        var misreservas=[];
+
+        for (var i in this.listausuarios){
+
+            if(this.listausuarios[i].get_dni() == unusuario.get_dni()){
+                for (var j in this.listareservas)
+                    if(this.listareservas[j].get_usuario() == unusuario.get_nombreyapellidos())
+                        misreservas.push(this.listareservas[j]);
+                break;
+            }
+
+        }
+
+        return misreservas;
     }
 }
 
