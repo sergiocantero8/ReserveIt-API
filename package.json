@@ -2,12 +2,12 @@
   "name": "reserveit-api",
   "version": "1.0.0",
   "description": "Proyecto de la asignatura IV",
-  "main": "index.js",
+  "main": "./src/index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "node test/run"
+    "test": "node ./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
