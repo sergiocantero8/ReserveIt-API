@@ -3,7 +3,7 @@
 ## Descripción del proyecto :green_book:
 La idea de la aplicación es desarrollar un sistema de reservas online para pistas deportivas (fútbol, tenis, pádel...etc). La app también será capaz de decirte precios, ubicación, una breve descripción de los complejos deportivos, tu historial de reservas y más funcionalidades.
 
-## Docker: elección de contenedor para un entorno de pruebas
+## Docker :whale2:
 
 ### Imagen base
 Como utilizo [Node.js]((https://nodejs.org/es/)) en mi proyecto, he consultado las imágenes oficiales de Node.js en [DockerHub](https://hub.docker.com/), tenemos tres opciones a la hora de elegir una imagen oficial de Nodejs:
@@ -55,20 +55,12 @@ CMD ["grunt","test"]
 ```
 Y por último, inndicamos el comando que se ejecutará para hacer correr los tests.
 
-## Herramientas utilizadas y justificación de la elección :hammer:
-Estas son las [herramientas principales](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/herramientas.md) que voy a utilizar en el proyecto.
+### Integración continua :arrows_clockwise:
+He enlazado Github y [Dockerhub](https://hub.docker.com/) para la integración continua y que con cada push a mi repositorio de Github, automáticamente se actualize mi repositorio de Dockerhub. Es muy sencillo enlazarlos, aunque me ha quedado más clara la explicación con este [artículo](https://docs.docker.com/docker-hub/builds/)
 
-+ Lenguaje de programación: [Node.js](https://nodejs.org/es/)
-+ Base de datos: [MariaDB](https://mariadb.org/)
-+ Framework: [Express](https://expressjs.com/es/)
-+ Test: [Mocha](https://mochajs.org/) y [Chai](https://www.chaijs.com/)
-+ Task-runner: [Grunt](https://gruntjs.com/)
 
-## Historias de usuario :busts_in_silhouette:
-Para ver todas las historias de usuario que se llevan a cabo en el proyecto, pincha [aquí](https://github.com/sergiocantero8/ReserveIt-API/labels/user-stories)
-+ [HU1 - Como usuario, quiero consultar las reservas que tengo activas ](https://github.com/sergiocantero8/ReserveIt-API/issues/3)
-+ [HU2 - Como usuario, quiero reservar en un polideportivo](https://github.com/sergiocantero8/ReserveIt-API/issues/8)
-+ [HU3 - Como usuario, quiero ver si la pista está libre a una hora determinada](https://github.com/sergiocantero8/ReserveIt-API/issues/9)
+
+
 
 
 ## Documentación :page_facing_up:
@@ -87,7 +79,9 @@ Enlaces del proyecto:
 
 + [Justificación de las herramientas utilizadas](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/herramientas.md).
 
-+[Herramientas de construcción y test utilizadas](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/herramientas_test.md)
++ [Herramientas de construcción y test utilizadas](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/herramientas_test.md)
+
++ [Historias de usuario]((https://github.com/sergiocantero8/reserve-it/blob/master/docs/herramientas_test.md))
 
 
 

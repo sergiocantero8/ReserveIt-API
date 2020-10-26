@@ -15,3 +15,10 @@ Como librería de aserciones he utilizado Chai ya que tiene varias interfaces qu
 
 ## Herramienta de construcción
 Como herramienta de construcción he utilizado [Grunt](https://gruntjs.com/), un corredor de tareas (task-runner) que principalmente sirve para automatizar tareas repetitivas. Lo he elegido porque he encontrado bastante información sobre él en internet y manuales de cómo usarlo correctamente, una de sus principales características es que tiene un fichero de configuración único, lo que prima más la configuración que la programación. 
+
+## Resumen
++ Lenguaje de programación: [Node.js](https://nodejs.org/es/)
++ Base de datos: [MariaDB](https://mariadb.org/)
++ Framework: [Express](https://expressjs.com/es/)
++ Test: [Mocha](https://mochajs.org/) y [Chai](https://www.chaijs.com/)
++ Task-runner: [Grunt](https://gruntjs.com/)
