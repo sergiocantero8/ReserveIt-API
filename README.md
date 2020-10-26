@@ -65,17 +65,24 @@ He añadido un [.dockerignore](https://github.com/sergiocantero8/reserve-it/blob
 ### Integración continua :arrows_clockwise:
 Para la integración continua he utilizado dos registros de imágenes de contenedores: Docker Hub y Github Container Registry.
 
-He enlazado Github y [Dockerhub](https://hub.docker.com/) para la integración continua y que con cada push a mi repositorio de Github, automáticamente se actualize mi repositorio de Dockerhub. Es muy sencillo de enlazarlos, aunque me ha quedado más clara la explicación con este [artículo](https://docs.docker.com/docker-hub/builds/). Creándote una cuenta de DockerHub, enlazarla con Github y teniendo un Dockerfile es suficiente para que se automatize.
+He enlazado mi cuenta de Github y la de mi [Dockerhub](https://hub.docker.com/repository/docker/sergiocantero8/reserve-it/general) para la integración continua y que con cada push a mi repositorio de Github, automáticamente se actualize mi repositorio de Dockerhub. Es muy sencillo de enlazarlos, aunque me ha quedado más clara la explicación con este [artículo](https://docs.docker.com/docker-hub/builds/). Creándote una cuenta de DockerHub, enlazarla con Github y teniendo un Dockerfile es suficiente para que se automatize.
 
-Para Github Container Registry es un poco más complicado, ya que primero debemos generar un token para poder identificarnos con la orden:
+Para Github Container Registry es un poco más complicado, ya que primero debemos generar un token y identificarnos con la orden:
 ```
 docker login https://docker.pkg.github.com -u sergiocantero8 -p TOKEN
 ```
 Teniendo buildeada la imagen que queramos subir, en mi caso sería:
+
 ```
 docker push docker.pkg.github.com/sergiocantero8/reserve-it/reserve-it-container:latest
 ```
 
+Y ya tendríamos el paquete en github, podríamos volver a descargarlo con:
+
+```
+docker pull docker.pkg.github.com/sergiocantero8/reserve-it/reserve-it-container:latest
+```
+[Paquete de mi proyecto](https://github.com/sergiocantero8/reserve-it/packages/474738)
 ### Ejecutar los tests desde DockerHub
 Para ejecutar los tests, primero nos descargamos la imagen del [repositorio de DockerHub](https://hub.docker.com/repository/docker/sergiocantero8/reserve-it/general) con el comando:
 
