@@ -23,6 +23,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-mocha-test');
 
     // Registra las tareas
-    grunt.registerTask('default', ['mochaTest']);
+    grunt.registerTask('test', ['mochaTest']);
     
 };
