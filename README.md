@@ -55,6 +55,8 @@ CMD ["grunt","test"]
 ```
 Y por último, inndicamos el comando que se ejecutará para hacer correr los tests.
 
+He añadido un [.dockerignore](https://github.com/sergiocantero8/reserve-it/blob/master/.dockerignore) para que el contenido de éste, no se añada a la imagen que se crea.
+
 ### Integración continua :arrows_clockwise:
 He enlazado Github y [Dockerhub](https://hub.docker.com/) para la integración continua y que con cada push a mi repositorio de Github, automáticamente se actualize mi repositorio de Dockerhub. Es muy sencillo enlazarlos, aunque me ha quedado más clara la explicación con este [artículo](https://docs.docker.com/docker-hub/builds/)
 
