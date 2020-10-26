@@ -83,7 +83,7 @@ Enlaces del proyecto:
 
 + [Herramientas de construcción y test utilizadas](https://github.com/sergiocantero8/ReserveIt-API/blob/master/docs/herramientas_test.md)
 
-+ [Historias de usuario]((https://github.com/sergiocantero8/reserve-it/blob/master/docs/herramientas_test.md))
++ [Historias de usuario](https://github.com/sergiocantero8/reserve-it/blob/master/docs/herramientas_test.md)
 
 
 
