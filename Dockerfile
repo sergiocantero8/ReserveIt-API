@@ -1,4 +1,4 @@
-# Partirá de la imagen slim de node 
+# Partirá de la imagen alpine de node 
 FROM node:10-alpine
 
 # Sólo es información del autor del dockerfile
