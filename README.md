@@ -31,20 +31,32 @@ LABEL version="1.0" maintainer="Sergio Azañon Cantero <sergiocantero8@gmail.com
 Una etiqueta para saber la versión y el autor del dockerfile.
 
 ```
-COPY package*.json ./
+COPY package.json ./
 COPY Gruntfile.js ./
 ```
 Copiamos los archivos que son necesarios para la ejecución de los tests, que en este caso es el paquete de dependencias y el task-runner.
 
+Creamos un nuevo usuario para que no instale las dependencias con privilegios de superusuario,ya que para ejecutar los tests no se necesita ser root.
+
 ```
-RUN npm install && npm install -g grunt-cli && adduser -D usuario
+RUN adduser -D usuario
 ```
-Instalamos las dependencia que necesita el proyecto y lo hacemos en una sola línea como indican las buenas prácticas ya que así se mantiene el caché para ambos comandos. Además añadimos un usuario que no tenga privilegios, ya que para ejecutar los tests no se necesita ser root
+
+```
+RUN npm install --no-install-recommends && npm install -g grunt-cli 
+```
+Instalamos las dependencia que necesita el proyecto y lo hacemos en una sola línea como indican las buenas prácticas ya que así se mantiene el caché para ambos comandos. Optimizamos un poco la imagen no instalando paquetes que nos recomienda.
 
 ```
 USER usuario
 ```
 Le indicamos que no tendremos privilegios.
+
+Elimina archivos temporales y que no se utilizan para optimizar un poco la imagen.
+
+```
+RUN rm -rf /var/lib/apt/lists/*
+```
 
 ```
 WORKDIR /test
