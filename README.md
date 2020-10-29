@@ -62,10 +62,10 @@ Y por último, inndicamos el comando que se ejecutará para hacer correr los tes
 
 He añadido un [.dockerignore](https://github.com/sergiocantero8/reserve-it/blob/master/.dockerignore) para que el contenido de éste, no se añada a la imagen que se crea.
 
-### Integración continua :arrows_clockwise:
-Para la integración continua he utilizado dos registros de imágenes de contenedores: Docker Hub y Github Container Registry.
+### Docker Hub y Github Container Registry 
+He utilizado dos registros de imágenes de contenedores: Docker Hub y Github Container Registry.
 
-He enlazado mi cuenta de Github y la de mi [Dockerhub](https://hub.docker.com/repository/docker/sergiocantero8/reserve-it/general) para la integración continua y que con cada push a mi repositorio de Github, automáticamente se actualize mi repositorio de Dockerhub. Es muy sencillo de enlazarlos, aunque me ha quedado más clara la explicación con este [artículo](https://docs.docker.com/docker-hub/builds/). Creándote una cuenta de DockerHub, enlazarla con Github y teniendo un Dockerfile es suficiente para que se automatize.
+He enlazado mi cuenta de Github y la de mi [Dockerhub](https://hub.docker.com/repository/docker/sergiocantero8/reserve-it/general) y que con cada push a mi repositorio de Github, automáticamente se actualize mi repositorio de Dockerhub. Es muy sencillo de enlazarlos, aunque me ha quedado más clara la explicación con este [artículo](https://docs.docker.com/docker-hub/builds/). Creándote una cuenta de DockerHub, enlazarla con Github y teniendo un Dockerfile es suficiente para que se automatize.
 
 Para Github Container Registry es un poco más complicado, ya que primero debemos generar un token y identificarnos con la orden:
 ```
