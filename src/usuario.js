@@ -57,6 +57,44 @@ class Usuario {
 
     //******************************************** */
 
+    // Setters
+
+    set_nombre(nombre) {
+        this.nombre=nombre;
+    }
+
+    set_apellidos(apellidos) {
+        this.apellidos=apellidos;
+    }
+
+    set_telefono(telefono) {
+        this.telefono=telefono;
+    }
+
+    set_email(email) {
+        this.email=email;
+    }
+
+    set_dni(dni) {
+        this.dni=dni;
+    }
+
+    set_fecha_nacimiento(fecha_nacimiento) {
+        this.fecha_nacimiento=fecha_nacimiento;
+    }
+
+    set_lugar_nacimiento(lugar_nacimiento) {
+        this.lugar_nacimiento=lugar_nacimiento;
+    }
+
+    set_nacionalidad(nacionalidad){
+        this.nacionalidad=nacionalidad;
+    }
+
+    set_nombreyapellidos(nombre, apellidos){
+        this.nombre=nombre;
+        this.apellidos=apellidos;
+    }
 }
 
 
