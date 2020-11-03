@@ -1,5 +1,4 @@
 # Indicamos el lenguaje que estamos utilizando
-
 language: node_js
 
 # Utilizamos las versiones de la 10 a la 14 de node 
