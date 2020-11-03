@@ -1,0 +1,18 @@
+# Indicamos el lenguaje que estamos utilizando
+
+language: node_js
+
+# Utilizamos las versiones de la 10 a la 14 de node 
+node_js:
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+
+# Instalamos grunt 
+before_install:
+  - npm install -g grunt
+
+# Ejecutamos los tests
+script: grunt test
