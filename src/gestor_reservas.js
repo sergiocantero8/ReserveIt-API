@@ -58,6 +58,18 @@ class GestorReservas {
 
         return misreservas;
     }
+
+    // Para que un usuario pueda consultar si una pista está libre en una fecha determinada
+    ver_pistalibre(pista, hora){
+
+        for (var i in this.listareservas){
+            if(this.listareservas[i].get_ubicacion()== pista)
+                if(this.listareservas[i].get_fecha()== hora)
+                    return false;
+        }
+
+        return true;
+    }
 }
 
 module.exports.GestorReservas = GestorReservas;
