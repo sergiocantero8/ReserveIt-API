@@ -3,9 +3,16 @@
 ## Descripción del proyecto :green_book:
 La idea de la aplicación es desarrollar un sistema de reservas online para pistas deportivas (fútbol, tenis, pádel...etc). La app también será capaz de decirte precios, ubicación, una breve descripción de los complejos deportivos, tu historial de reservas y más funcionalidades.
 
+## Integración continua :arrows_clockwise:
 
+Para la integración continua, vamos a utilizar tres sistemas diferentes: Travis, Shippable y Circle CI.
 
+### Travis
+[![Build Status](https://travis-ci.com/sergiocantero8/reserve-it.svg?branch=master)](https://travis-ci.com/sergiocantero8/reserve-it)
 
+Para configurar Travis correctamente es muy simple, ya que al darnos de alta, nos da la opción de enlazarlos con Github y elegir un repositorio que con cada push se relancen los tests. Cuando hemos hecho el paso anterior, tendremos que crear el [fichero de configuracion de Travis](https://github.com/sergiocantero8/reserve-it/blob/master/.travis.yml) , esto permite que su configuración sea flexible y controlada por versiones.
+
+Como vemos en la parte superior, Travis nos proporciona un badge para que desde nuestro repositorio de Github podamos ver el estado del último test que se ha lanzado en Travis.
 
 
 
