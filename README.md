@@ -10,11 +10,42 @@ Para la integración continua, vamos a utilizar tres sistemas diferentes: Travis
 ### Travis
 [![Build Status](https://travis-ci.com/sergiocantero8/reserve-it.svg?branch=master)](https://travis-ci.com/sergiocantero8/reserve-it)
 
-Para configurar Travis correctamente es muy simple, ya que al darnos de alta, nos da la opción de enlazarlos con Github y elegir un repositorio que con cada push se relancen los tests. Cuando hemos hecho el paso anterior, tendremos que crear el [fichero de configuracion de Travis](https://github.com/sergiocantero8/reserve-it/blob/master/.travis.yml) , esto permite que su configuración sea flexible y controlada por versiones.
+Para configurar Travis correctamente es muy simple, ya que al darnos de alta, nos da la opción de enlazar nuestra cuenta con Github y elegir un repositorio para el cuál con cada push se relancen los tests. Tras hacer el paso anterior, tendremos que crear el [fichero de configuracion de Travis](https://github.com/sergiocantero8/reserve-it/blob/master/.travis.yml) , esto permite que su configuración sea flexible y controlada por versiones.
 
 Como vemos en la parte superior, Travis nos proporciona un badge para que desde nuestro repositorio de Github podamos ver el estado del último test que se ha lanzado en Travis.
 
+Voy a explicar el contenido de mi fichero de configuración de Travis:
 
+Le indicamos el lenguaje que estamos utilizando y del cuál partimos
+```
+
+language: node_js
+
+```
+
+Utilizo las versiones 10, 12 y 14 ya que éstas forman parte del [Node.js Release Working Group](https://github.com/nodejs/Release)
+
+```
+node_js:
+    - 10
+    - 12
+    - 14
+
+```
+Instalamos las dependencias, el framework que utilizamos para los tests que es Mocha y el task-runner que es Grunt
+```
+before_install:
+  - npm install
+  - npm install -g mocha
+  - npm install -g grunt
+```
+
+Y finalmente, para ejecutar los tests, necesitamos que ejecute la orden grunt test
+
+```
+script: grunt test
+
+```
 
 
 ## Documentación :page_facing_up:
