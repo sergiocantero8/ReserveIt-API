@@ -48,8 +48,32 @@ script: grunt test
 ```
 
 ### Circle CI
+
+[![reserve-it](https://circleci.com/gh/sergiocantero8/reserve-it.svg?style=svg)](https://app.circleci.com/pipelines/github/sergiocantero8/reserve-it)
+
 Para empezar a utilizar este sistema, primero deberemos darnos de alta en él, los pasos a seguir son muy parecidos a Travis ya que nos permite darnos de alta con nuestra cuenta de Github.
-A la hora del fichero de configuración, cambia un poco. Debemos crearnos una carpeta llamada .circleci y un archivo llamado config.yml. Aunque la interfaz web nos permite crear y editar el fichero desde la web y hacer un commit para Github, yo he preferido hacerlo manualmente.
+
+A la hora del fichero de configuración, cambia un poco. Debemos crearnos una carpeta llamada .circleci y un archivo llamado config.yml. Aunque la interfaz web nos permite crear y editar el fichero desde la web y hacer un commit para Github, he elegido esta forma por probar algo diferente a lo anterior, ellos te hacen un commit y tu haces un PR y lo mergeas con tu rama master. Voy a explicar brevemente mi fichero de configuración de CircleCI:
+
+
+Defino los trabajos que queremos que ejecute para este proyecto, le indicamos que utilizamos una máquina Linux, hacemos un checkout del repositorio, descargo el contenedor de DockerHub utilizado en el anterior hito y lo ejecutamos.
+
+```
+version: 2.1
+
+jobs:
+ build:
+   machine: true
+   steps:
+      - checkout
+
+      - run: docker pull sergiocantero8/reserve-it
+      - run: docker run -t -v `pwd`:/test sergiocantero8/reserve-it:latest
+
+```
+
+Como podemos observar, CircleCI también te da la posibilidad de añadir un badge para ver el estado del último build de tu proyecto.
+
 
 ## Documentación :page_facing_up:
 
