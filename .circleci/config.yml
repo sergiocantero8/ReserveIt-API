@@ -1,6 +1,7 @@
 version: 2.1
 
 # Define los trabajos que queremos que ejecute para este proyecto
+
 jobs:
  build:
   # Indicamos que utilizamos Ubuntu
