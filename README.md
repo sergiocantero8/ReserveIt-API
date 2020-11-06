@@ -47,6 +47,9 @@ script: grunt test
 
 ```
 
+### Circle CI
+Para empezar a utilizar este sistema, primero deberemos darnos de alta en él, los pasos a seguir son muy parecidos a Travis ya que nos permite darnos de alta con nuestra cuenta de Github.
+A la hora del fichero de configuración, cambia un poco. Debemos crearnos una carpeta llamada .circleci y un archivo llamado config.yml. Aunque la interfaz web nos permite crear y editar el fichero desde la web y hacer un commit para Github, yo he preferido hacerlo manualmente.
 
 ## Documentación :page_facing_up:
 
