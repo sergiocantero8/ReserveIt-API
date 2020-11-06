@@ -53,10 +53,10 @@ script: grunt test
 
 Para empezar a utilizar este sistema, primero deberemos darnos de alta en él, los pasos a seguir son muy parecidos a Travis ya que nos permite darnos de alta con nuestra cuenta de Github.
 
-A la hora del fichero de configuración, cambia un poco. Debemos crearnos una carpeta llamada .circleci y un archivo llamado config.yml. Aunque la interfaz web nos permite crear y editar el fichero desde la web y hacer un commit para Github, he elegido esta forma por probar algo diferente a lo anterior, ellos te hacen un commit y tu haces un PR y lo mergeas con tu rama master. Lo he configurado de manera que se aproveche el contenedor de Docker creado en el anterior hito, voy a explicar brevemente mi fichero de configuración de CircleCI:
+A la hora del fichero de configuración, cambia un poco. Debemos crearnos una carpeta llamada .circleci y un archivo llamado config.yml. Aunque la interfaz web nos permite crear y editar el fichero desde la web y hacer un commit para Github, he elegido esta forma por probar algo diferente a lo anterior, ellos te hacen un commit y tu haces un PR y lo mergeas con tu rama master. Lo he configurado de manera que se aproveche el contenedor de Docker creado en el anteriormente, voy a explicar brevemente mi fichero de configuración de CircleCI:
 
 
-Defino los trabajos que queremos que ejecute para este proyecto, le indicamos que utilizamos una máquina Linux, hacemos un checkout del repositorio, descargo el contenedor de DockerHub utilizado en el anterior hito y lo ejecutamos.
+Defino los trabajos que queremos que ejecute para este proyecto, le indicamos que utilizamos una máquina Linux, hacemos un checkout del repositorio, descargo el contenedor de DockerHub utilizado en el anteriormente y lo ejecutamos.
 
 ```
 version: 2.1
