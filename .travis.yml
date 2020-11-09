@@ -9,7 +9,7 @@ node_js:
 
 # Instalamos las dependencias, mocha y grunt 
 before_install:
-  - npm install -g mocha grunt-cli
+  - npm install -g mocha grunt
 
 # Ejecutamos los tests
 script: grunt test
