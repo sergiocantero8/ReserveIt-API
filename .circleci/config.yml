@@ -12,7 +12,4 @@ jobs:
             name: Ejecutando tests
             command: grunt test
 
-workflows:
-  test:
-    jobs:
-      - tests
+
