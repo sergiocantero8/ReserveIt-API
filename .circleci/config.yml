@@ -7,9 +7,7 @@ jobs:
    
    docker:
       image: sergiocantero8/reserve-it
-      
-  # Indicamos que utilizamos Ubuntu
-   machine: true
+
    steps:
       # Checkout del repositorio
       - checkout
