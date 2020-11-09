@@ -1,17 +1,15 @@
 # Indicamos el lenguaje que estamos utilizando
 language: node_js
 
-# Utilizamos las versiones: 10, 12 y 14 que son las que actualmente estan manteniendose
+# Utilizamos las versiones: 12, 14 y 15 que son las que actualmente estan manteniendose
 node_js:
-    - 10
     - 12
     - 14
+    - 15
 
 # Instalamos las dependencias, mocha y grunt 
 before_install:
-  - npm install
-  - npm install -g mocha
-  - npm install -g grunt
+  - npm install -g mocha grunt
 
 # Ejecutamos los tests
 script: grunt test
