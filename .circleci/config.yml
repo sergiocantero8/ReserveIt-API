@@ -3,14 +3,18 @@ version: 2.1
 # Define los trabajos que queremos que ejecute para este proyecto
 jobs:
 
- build:
-   
-   docker:
-      image: sergiocantero8/reserve-it
+   tests:
+      docker:
+         image: sergiocantero8/reserve-it
 
-   steps:
-      # Checkout del repositorio
-      - checkout
-      - run:
+      steps:
+         # Checkout del repositorio
+         - checkout
+         - run:
             name: Ejecutando tests
             command: grunt test
+
+workflows:
+  test:
+    jobs:
+      - tests
