@@ -58,7 +58,7 @@ Para empezar a utilizar este sistema, primero deberemos darnos de alta en él, l
 A la hora del fichero de configuración, cambia un poco. Debemos crearnos una carpeta llamada .circleci y un archivo llamado config.yml. Aunque la interfaz web nos permite crear y editar el fichero desde la web y hacer un commit para Github, he elegido esta forma por probar algo diferente a lo anterior, ellos te hacen un commit y tu haces un PR y lo mergeas con tu rama master. Lo he configurado de manera que se aproveche el contenedor de Docker creado en el anteriormente, voy a explicar brevemente mi fichero de configuración de CircleCI:
 
 
-Defino los trabajos que queremos que ejecute para este proyecto, descargo el contenedor haciendo uso de Docker, realizo un checkout del repositorio y lanzo los tests con el gestor de tareas. Finalmente, con flujos de trabajo le indico que ejecute la tarea test.
+Defino los trabajos que queremos que ejecute para este proyecto, descargo el contenedor haciendo uso de Docker, realizo un checkout del repositorio y lanzo los tests con el gestor de tareas. 
 
 
 ```
@@ -69,7 +69,7 @@ jobs:
  build:
    
    docker:
-      image: sergiocantero8/reserve-it
+      - image: sergiocantero8/reserve-it
 
    steps:
       - checkout
@@ -77,10 +77,7 @@ jobs:
             name: Ejecutando tests
             command: grunt test
 
-workflows:
-  test:
-    jobs:
-      - tests
+
 
 ```
 
