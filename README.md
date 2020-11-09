@@ -3,6 +3,10 @@
 ## Descripción del proyecto :green_book:
 La idea de la aplicación es desarrollar un sistema de reservas online para pistas deportivas (fútbol, tenis, pádel...etc). La app también será capaz de decirte precios, ubicación, una breve descripción de los complejos deportivos, tu historial de reservas y más funcionalidades.
 
+## ¿Por qué he elegido este proyecto? :mag:
+Llevamos toda la vida reservando pistas para hacer deporte de forma telefónica o presencial. Ya en 2020 debería poderse hacer de forma online la reserva pero sin embargo la mayoría de sitios no cuentan con un sistema para reservar online. ¿Por qué? ¿Es muy caro mantener una estructura para hacer un sistema de reservas que funcione correctamente? ¿O es muy complicado?  
+A la hora de hacer una reserva para una pista deportiva, siempre me he preguntado por qué la reserva no se podía hacer online ya que es más facil tanto para el cliente como para el trabajador de la empresa que maneje las pistas. Por eso, me he propuesto ver que grado de dificultad tendría hacer un sistema de reservas para pistas online (sólo la parte de backend) y cómo se llevaría a cabo.
+
 ## Integración continua :arrows_clockwise:
 
 Para la integración continua, vamos a utilizar dos sistemas diferentes: Travis y Circle CI.
@@ -23,21 +27,19 @@ language: node_js
 
 ```
 
-Utilizo las versiones 10, 12 y 14 ya que éstas forman parte del [Node.js Release Working Group](https://github.com/nodejs/Release)
+Utilizo las versiones 12, 14 y 15 porque además de que forman parte del [Node.js Release Working Group](https://github.com/nodejs/Release), funcionan correctamente con nuestro proyecto.
 
 ```
 node_js:
-    - 10
     - 12
     - 14
+    - 15
 
 ```
 Instalamos las dependencias, el framework que utilizamos para los tests que es Mocha y el task-runner que es Grunt
 ```
 before_install:
-  - npm install
-  - npm install -g mocha
-  - npm install -g grunt
+  - npm install -g mocha grunt
 ```
 
 Y finalmente, para ejecutar los tests, necesitamos que ejecute la orden grunt test
@@ -56,19 +58,24 @@ Para empezar a utilizar este sistema, primero deberemos darnos de alta en él, l
 A la hora del fichero de configuración, cambia un poco. Debemos crearnos una carpeta llamada .circleci y un archivo llamado config.yml. Aunque la interfaz web nos permite crear y editar el fichero desde la web y hacer un commit para Github, he elegido esta forma por probar algo diferente a lo anterior, ellos te hacen un commit y tu haces un PR y lo mergeas con tu rama master. Lo he configurado de manera que se aproveche el contenedor de Docker creado en el anteriormente, voy a explicar brevemente mi fichero de configuración de CircleCI:
 
 
-Defino los trabajos que queremos que ejecute para este proyecto, le indicamos que utilizamos una máquina Linux, hacemos un checkout del repositorio, descargo el contenedor de DockerHub utilizado en el anteriormente y lo ejecutamos.
+Defino los trabajos que queremos que ejecute para este proyecto, descargo el contenedor haciendo uso de Docker, realizo un checkout del repositorio y lanzo los tests con el gestor de tareas.
+
 
 ```
 version: 2.1
 
 jobs:
+
  build:
-   machine: true
+   
+   docker:
+      image: sergiocantero8/reserve-it
+
    steps:
       - checkout
-
-      - run: docker pull sergiocantero8/reserve-it
-      - run: docker run -t -v `pwd`:/test sergiocantero8/reserve-it:latest
+      - run:
+            name: Ejecutando tests
+            command: grunt test
 
 ```
 
