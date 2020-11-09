@@ -1,9 +1,9 @@
 version: 2.1
 # Define los trabajos que queremos que ejecute para este proyecto
 jobs:
-   tests:
+   build:
       docker:
-         image: sergiocantero8/reserve-it
+         - image: sergiocantero8/reserve-it
 
       steps:
          # Checkout del repositorio
