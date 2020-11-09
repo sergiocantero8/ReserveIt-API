@@ -70,6 +70,26 @@ class GestorReservas {
 
         return true;
     }
+
+    // Método para que un usuario pueda cancelar una reserva que ya está reservada
+    // Devuelve TRUE si se ha cancelado correctamente y FALSE si no
+    cancelar_reserva(usuario, pista, fecha){
+
+        var tiene_reservas=this.ver_datosreserva(usuario);
+
+        if(tiene_reservas.length!=0){
+            for (var i in this.listareservas){
+                if(this.listareservas[i].get_ubicacion()== pista)
+                    if(this.listareservas[i].get_fecha()== fecha){
+                        this.listareservas.splice( i, 1 );
+                        return true;
+                    }
+            }
+
+        }
+
+        return false;
+    }
 }
 
 module.exports.GestorReservas = GestorReservas;
