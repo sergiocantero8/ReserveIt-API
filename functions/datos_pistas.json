@@ -1,0 +1,30 @@
+[
+    {
+        "provincia": "Granada",
+        "ubicacion": "Estadio de la Juventud, Granada",
+        "tipo": "Pádel",
+        "precio_diurno": "4€",
+        "precio_nocturno": "8€"
+    },
+    {
+        "provincia": "Granada",
+        "ubicacion": "Estadio de la Juventud, Granada",
+        "tipo": "Fútbol 11",
+        "precio_diurno": "36€",
+        "precio_nocturno": "60€"
+    },
+    {
+        "provincia": "Granada",
+        "ubicacion": "Campus de la Cartuja, Granada",
+        "tipo": "Pádel",
+        "precio_diurno": "6,25€",
+        "precio_nocturno": "9€"
+    },
+    {
+        "provincia": "Granada",
+        "ubicacion": "Polideportivo de Armilla, Armilla",
+        "tipo": "Padel",
+        "precio_diurno": "11€",
+        "precio_nocturno": "15€"
+    }
+]
