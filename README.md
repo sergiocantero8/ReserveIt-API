@@ -21,6 +21,7 @@ Tiene una interfaz web bastante intuitiva y clara pero usaré el interfaz de lí
 npm install -g netlify-cli"
 ```
 
+Para el front-end voy a utilizar Snowpack
 ## Documentación :page_facing_up:
 
 Enlaces del proyecto: 
