@@ -13,7 +13,7 @@ A la hora de hacer una reserva para una pista deportiva, siempre me he preguntad
 Para implementar mis dos funciones usando serverless he utilizado dos plataformas que ofrecen servicios de alojamiento como son [Netlify](https://www.netlify.com/) y [Vercel](https://vercel.com/).
 
 ### Netlify
-Para empezar a utilizar Netlify, vas a su página web y para registrarte te la opción de hacerlo con Github para tener enlazadas las cuentas, esta es la opción que he utilizado.
+Para empezar a utilizar Netlify, vas a su página web y para registrarte te la opción de hacerlo con Github para tener enlazadas las cuentas, esta es la opción que he utilizado. Tendrás que darle permiso para instalarlo en tus repositorios de Github, tras esto, importas tu proyecto con la opcion "Import from Git".
 
 Tiene una interfaz web bastante intuitiva y clara pero para trabajar en local mientras desarollo la función y no tener que desplegarla cada vez que quiera ver su funcionamiento, usaré el interfaz de línea de comandos (CLI) que se instala con la orden:
 
@@ -29,7 +29,12 @@ netlify dev
 
 He desarrollado [una función](https://github.com/sergiocantero8/reserve-it/blob/master/functions/precio.js) que recibe una provincia, un deporte y opcionalmente un parámetro para ordenar por precio (de más barato a más caro o viceversa) y te devuelve todas las pistas deportivas del deporte indicado en la provincia dada y ordenadas por precio.
 
-Para el front-end voy a utilizar Snowpack
+Para el front-end alojado en este [repositorio](https://github.com/sergiocantero8/reserve-it/tree/master/front-end), he utilizado [Snowpack](https://www.snowpack.dev/) que es una herramienta de creación de frontend para un desarrollo web mucho más rápido, he utilizado un template muy simple llamado [lit-html](https://lit-html.polymer-project.org/) y he introducido un formulario que recoge los datos y muestra el resultado.
+
+La función junto con el front-end están [alojadas en Netlify](https://compara-precios.netlify.app/)
+
+Tiene más [información adicional](https://github.com/sergiocantero8/reserve-it/blob/master/docs/git_config.md) disponible sobre este proceso y la función escrita.
+
 ## Documentación :page_facing_up:
 
 Enlaces del proyecto: 
