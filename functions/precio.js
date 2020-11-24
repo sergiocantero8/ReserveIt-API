@@ -12,12 +12,18 @@ exports.handler = async function(event, context) {
     let resultado=datos_pistas;
 
     
-    const {provincia, tipo, orden_precio} = event.queryStringParameters || "Error en los parametros"
+    const {provincia, tipo, orden_precio} = event.queryStringParameters 
 
     
     resultado=resultado.filter(datos_pistas => datos_pistas.provincia == provincia)
 
     resultado=resultado.filter(datos_pistas => datos_pistas.tipo == tipo)
+
+    if (resultado.length == 0)
+    return {
+        statusCode: 400,
+        body: "No hay resultados para esos parámetros "
+    }
 
     var i = 0;
     var media=[];
