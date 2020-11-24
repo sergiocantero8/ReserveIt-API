@@ -6,6 +6,8 @@ exports.handler = async function(event, context) {
     let resultado=datos_pistas;
     const {provincia, tipo, orden_precio} = event.queryStringParameters
 
+    if(provincia == 'Granada')
+        resultado=resultado.filter(datos_pistas => datos_pistas.provincia == provincia)
 
     return {
         statusCode: 200,
