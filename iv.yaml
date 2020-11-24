@@ -2,7 +2,7 @@ entidad: src/usuario.js
 
 lenguaje: javascript
 
-test: test/run.js
+test: test/test_cancelarPista.js
 
 taskfile: package.json
 
