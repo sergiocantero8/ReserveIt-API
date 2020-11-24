@@ -42,6 +42,11 @@ export class AppRoot extends LitElement {
           <option>Fútbol 11</option>
           <option>Tenis</option>
         </select>
+        <label>Tipo:</label><br>
+        <select name="orden_precio">
+        <option>Más barato</option>
+        <option>Más caro</option>
+      </select>
         <input type="submit" value="Enviar datos">
         </form>
         <a

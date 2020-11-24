@@ -28,7 +28,7 @@ exports.handler = async function(event, context) {
         i+=1
     }
 
-        if (orden_precio == 'Barato')
+        if (orden_precio == 'Más barato')
             resultado.sort((a,b) => a.media - b.media)
         else
             resultado.sort((a,b) => b.media - a.media)
