@@ -1,31 +1,20 @@
-const data = require('./horarios.json')
-
-exports.handler = async function(event, context) {
-
-    let horarios = data;
-
-    const {ubicacion} = event.queryStringParameters 
-  
-    if (ubicacion != "") {
-        horarios=horarios.filter(data => horarios.ubicacion == ubicacion)
-    } else{
-      return{
-        statusCode: 400,
-        body: "Debe indicar el parámetro ubicacion para ver los horarios "
-      }
-    }
-
-    if(horarios.length == 0)
-        return{
-            statusCode: 400,
-            body: "No hay horarios para esa ubicacion"
-        }
-    else
-        return {
-            statusCode: 200,
-            headers: {
-                'Content-Type': 'application/json'
-              },
-            body: JSON.stringify(horarios)
-        };
+const data = require('./horarios.js')
+module.exports = (req, res) => {
+  var obj = {};
+  var keys = Object.keys(data);
+  if(req.query.ubicacion == undefined){
+    res.status(400).send(`Debe indicar una ubicacion para informar sobre el horario`);
   }
+  else{
+    var ubicacion=req.query.ubicacion;
+    if(keys.includes(ubicacion)){
+      var horarios_ubicacion = data[ubicacion];
+      obj[ubicacion] = horarios_ubicacion;
+    }
+    else{
+      res.status(400).send(`No hay ningun horario para esa ubicacion`);
+    }
+  }
+  res.setHeader('Content-Type','application/json'); 
+  res.status(200).json(obj);
+};

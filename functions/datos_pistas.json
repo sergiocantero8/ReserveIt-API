@@ -40,5 +40,12 @@
         "tipo": "Pádel",
         "precio_diurno": "12€",
         "precio_nocturno": "24€"
+    },
+    {
+        "provincia": "Jaén",
+        "ubicacion": "Padel Premium, Jaén",
+        "tipo": "Pádel",
+        "precio_diurno": "15€",
+        "precio_nocturno": "30€"
     }
 ]
