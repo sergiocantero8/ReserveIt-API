@@ -15,11 +15,19 @@ Para implementar mis dos funciones usando serverless he utilizado dos plataforma
 ### Netlify
 Para empezar a utilizar Netlify, vas a su página web y para registrarte te la opción de hacerlo con Github para tener enlazadas las cuentas, esta es la opción que he utilizado.
 
-Tiene una interfaz web bastante intuitiva y clara pero usaré el interfaz de línea de comandos (CLI) y se instala con la orden:
+Tiene una interfaz web bastante intuitiva y clara pero para trabajar en local mientras desarollo la función y no tener que desplegarla cada vez que quiera ver su funcionamiento, usaré el interfaz de línea de comandos (CLI) que se instala con la orden:
 
 ```
 npm install -g netlify-cli"
 ```
+
+Con la siguiente orden, nos desplegará la función en localhost.
+
+```
+netlify dev
+```
+
+He desarrollado [una función](https://github.com/sergiocantero8/reserve-it/blob/master/functions/precio.js) que recibe una provincia, un deporte y opcionalmente un parámetro para ordenar por precio (de más barato a más caro o viceversa) y te devuelve todas las pistas deportivas del deporte indicado en la provincia dada y ordenadas por precio.
 
 Para el front-end voy a utilizar Snowpack
 ## Documentación :page_facing_up:
