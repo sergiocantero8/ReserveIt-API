@@ -1,4 +1,4 @@
-# New Project
+# Build del front-end
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
 
