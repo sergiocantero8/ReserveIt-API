@@ -2,12 +2,37 @@ const datos_pistas = require('./datos_pistas.json')
 
 exports.handler = async function(event, context) {
 
-    
-    let resultado=datos_pistas;
-    const {provincia, tipo, orden_precio} = event.queryStringParameters
+    function media_precios ( precio_diurno, precio_nocturno )
+    { 
+        var precio_diurno = parseInt(precio_diurno, 10);
+        var precio_nocturno = parseInt(precio_nocturno, 10);
+        return ( (precio_diurno+precio_nocturno)/2 );
+    }
 
-    if(provincia == 'Granada')
-        resultado=resultado.filter(datos_pistas => datos_pistas.provincia == provincia)
+    let resultado=datos_pistas;
+
+    
+    const {provincia, tipo, orden_precio} = event.queryStringParameters || "Error en los parametros"
+
+    
+    resultado=resultado.filter(datos_pistas => datos_pistas.provincia == provincia)
+
+    resultado=resultado.filter(datos_pistas => datos_pistas.tipo == tipo)
+
+    var i = 0;
+    var media=[];
+
+    while( i < resultado.length){
+        media[i]= media_precios(resultado[i].precio_diurno,resultado[i].precio_nocturno );
+         resultado[i].media=media[i];
+        i+=1
+    }
+
+        if (orden_precio == 'Barato')
+            resultado.sort((a,b) => a.media - b.media)
+        else
+            resultado.sort((a,b) => b.media - a.media)
+
 
     return {
         statusCode: 200,
