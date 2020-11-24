@@ -1,6 +1,13 @@
 [
     {
         "provincia": "Granada",
+        "ubicacion": "Padel Sport Indoor, Granada",
+        "tipo": "Pádel",
+        "precio_diurno": "25€",
+        "precio_nocturno": "36€"
+    },
+    {
+        "provincia": "Granada",
         "ubicacion": "Estadio de la Juventud, Granada",
         "tipo": "Pádel",
         "precio_diurno": "4€",
@@ -23,8 +30,15 @@
     {
         "provincia": "Granada",
         "ubicacion": "Polideportivo de Armilla, Armilla",
-        "tipo": "Padel",
+        "tipo": "Pádel",
         "precio_diurno": "11€",
         "precio_nocturno": "15€"
+    },
+    {
+        "provincia": "Jaén",
+        "ubicacion": "Padel Indoor, Jaén",
+        "tipo": "Pádel",
+        "precio_diurno": "12€",
+        "precio_nocturno": "24€"
     }
 ]
