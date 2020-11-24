@@ -6,6 +6,9 @@ var reserva = require('../src/reserva');
 var usuario = require ('../src/usuario.js');
 var gestor = require ('../src/gestor_reservas.js')
 
+chai.use(require('chai-http'));
+const url= 'https://compara-precios.netlify.app/.netlify/functions/precio/';
+
 describe('Testeando el método ver_datosreserva: ', function() {
 
   let unusuario = new usuario.Usuario('Pepito', 'Fernandez Campos', 'pepito@gmail.com', '34657239F', '04/02/1998', 'Granada', 'España' );
@@ -150,6 +153,26 @@ describe('Testeando el método cancelar_pista: ', function() {
 
     assert.equal(resultado, false);
   });
+
+
+});
+
+
+describe('Testeando la API para comparar los precios de las pistas: ', function() {
+
+
+
+  it('Granada tiene pistas de pádel disponibles', function(){
+
+    chai.request(url).get('?provincia=Granada&tipo=Pádel&orden_precio=Más+barato').end(function(err,res){
+
+      expect(res).to.have.status(200);
+      
+  })
+  });
+
+
+
 
 
 });
