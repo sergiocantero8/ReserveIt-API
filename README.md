@@ -36,6 +36,17 @@ La función junto con el front-end están [alojadas en Netlify](https://compara-
 
 Tiene más [información adicional](https://github.com/sergiocantero8/reserve-it/blob/master/docs/git_config.md) disponible sobre este proceso y la función escrita.
 
+#### Tests e issues/historias de usuario de la función serverless
+He realizado un [test](https://github.com/sergiocantero8/reserve-it/blob/master/test/test_API.js) para comprobar que la API funciona correctamente.
+La historia de usuario a la que corresponde el test es: [[HU5] - Como usuario, quiero saber cuál es la pista más barata de un deporte en la provincia](https://github.com/sergiocantero8/reserve-it/issues/40) y todos los issues son: 
+- [Documentacion serverless](https://github.com/sergiocantero8/reserve-it/issues/42)
+- [Implementar función serverless con Netlify](https://github.com/sergiocantero8/reserve-it/issues/43)
+- [Datos serializados para la funcion](https://github.com/sergiocantero8/reserve-it/issues/44)
+- [Configuracion netflify](https://github.com/sergiocantero8/reserve-it/issues/45)
+- [Front-end para la funcion serverless](https://github.com/sergiocantero8/reserve-it/issues/46)
+- [Añadidos tests para la API desarrollada](https://github.com/sergiocantero8/reserve-it/issues/48)
+
+
 ## Documentación :page_facing_up:
 
 Enlaces del proyecto: 
