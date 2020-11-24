@@ -41,8 +41,8 @@ export class AppRoot extends LitElement {
           <option>Pádel</option>
           <option>Fútbol 11</option>
           <option>Tenis</option>
-        </select>
-        <label>Tipo:</label><br>
+        </select><br>
+        <label>Orden de precio:</label><br>
         <select name="orden_precio">
         <option>Más barato</option>
         <option>Más caro</option>
