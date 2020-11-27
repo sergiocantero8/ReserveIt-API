@@ -1,12 +1,12 @@
 const data = require('./horarios.json')
 module.exports = (req, res) => {
   var obj = {};
-  ubicacion = req.query;
+  var ubicacion = req.query;
   if(ubicacion == undefined){
     res.status(400).send(`Debe indicar una ubicacion para informar sobre el horario`);
   }
   else{
-    claves=Object.keys(data);
+    var claves=Object.keys(data);
     if(claves.includes(ubicacion)){
       var horarios_ubicacion = data[ubicacion];
       obj[ubicacion] = horarios_ubicacion;
