@@ -14,12 +14,14 @@ A la hora de hacer una reserva para una pista deportiva, siempre me he preguntad
 Para implementar mis dos funciones usando serverless he utilizado dos plataformas que ofrecen servicios de alojamiento como son [Netlify](https://www.netlify.com/) y [Vercel](https://vercel.com/).
 
 ### Netlify
+
+#### Rúbricas 1 y 2: despliegue correcto y funcionando en Netlify para despliegue continuo e ir más alla del despliegue de un ejemplo con sus issues y HU correspondiente
 Para empezar a utilizar Netlify, vas a su página web y para registrarte te la opción de hacerlo con Github para tener enlazadas las cuentas, esta es la opción que he utilizado. Tendrás que darle permiso para instalarlo en tus repositorios de Github, tras esto, importas tu proyecto con la opcion "Import from Git".
 
 Tiene una interfaz web bastante intuitiva y clara pero para trabajar en local mientras desarollo la función y no tener que desplegarla cada vez que quiera ver su funcionamiento, usaré el interfaz de línea de comandos (CLI) que se instala con la orden:
 
 ```
-npm install -g netlify-cli"
+npm install -g netlify-cli
 ```
 
 Con la siguiente orden, nos desplegará la función en localhost.
@@ -30,21 +32,33 @@ netlify dev
 
 He desarrollado [una función](https://github.com/sergiocantero8/reserve-it/blob/master/functions/precio.js) que recibe una provincia, un deporte y opcionalmente un parámetro para ordenar por precio (de más barato a más caro o viceversa) y te devuelve todas las pistas deportivas del deporte indicado en la provincia dada y ordenadas por precio.
 
-Para el front-end alojado en este [repositorio](https://github.com/sergiocantero8/reserve-it/tree/master/front-end), he utilizado [Snowpack](https://www.snowpack.dev/) que es una herramienta de creación de frontend para un desarrollo web mucho más rápido, he utilizado un template muy simple llamado [lit-html](https://lit-html.polymer-project.org/) y he introducido un formulario que recoge los datos y muestra el resultado.
-
-La función junto con el front-end están [alojadas en Netlify](https://compara-precios.netlify.app/)
-
-Tiene más [información adicional](https://github.com/sergiocantero8/reserve-it/blob/master/docs/git_config.md) disponible sobre este proceso y la función escrita.
-
 #### Tests e issues/historias de usuario de la función serverless
+
 He realizado un [test](https://github.com/sergiocantero8/reserve-it/blob/master/test/test_API.js) para comprobar que la API funciona correctamente.
-La historia de usuario a la que corresponde el test es: [[HU5] - Como usuario, quiero saber cuál es la pista más barata de un deporte en la provincia](https://github.com/sergiocantero8/reserve-it/issues/40) y todos los issues son: 
+La historia de usuario a la que corresponde el test es: 
+[[HU5] - Como usuario, quiero saber cuál es la pista más barata de un deporte en la provincia](https://github.com/sergiocantero8/reserve-it/issues/40)
+
+Todos los issues son: 
 - [Documentacion serverless](https://github.com/sergiocantero8/reserve-it/issues/42)
 - [Implementar función serverless con Netlify](https://github.com/sergiocantero8/reserve-it/issues/43)
 - [Datos serializados para la funcion](https://github.com/sergiocantero8/reserve-it/issues/44)
 - [Configuracion netflify](https://github.com/sergiocantero8/reserve-it/issues/45)
 - [Front-end para la funcion serverless](https://github.com/sergiocantero8/reserve-it/issues/46)
 - [Añadidos tests para la API desarrollada](https://github.com/sergiocantero8/reserve-it/issues/48)
+
+
+### Rúbrica 4: integración con un front-end web que funcione en la práctica
+Para el front-end alojado en este [repositorio](https://github.com/sergiocantero8/reserve-it/tree/master/front-end), he utilizado [Snowpack](https://www.snowpack.dev/) que es una herramienta de creación de frontend para un desarrollo web mucho más rápido, he utilizado un template muy simple llamado [lit-html](https://lit-html.polymer-project.org/) y he introducido un formulario que recoge los datos y muestra el resultado.
+
+La función junto con el front-end están [alojadas en Netlify](https://compara-precios.netlify.app/)
+
+Para la construcción del front-end con la función serverless he utilizado la siguiente orden que instala las dependencias necesarias:
+```
+cd front-end && npm i && npm run build && cd ..
+```
+
+Tiene más [información adicional](https://github.com/sergiocantero8/reserve-it/blob/master/docs/git_config.md) disponible sobre este proceso y la función escrita.
+
 
 
 ## Documentación :page_facing_up:
