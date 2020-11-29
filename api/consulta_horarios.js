@@ -20,11 +20,7 @@ module.exports = (req, res) => {
 
       status=200;
   }
-  res.setHeader('Content-Type','application/json'); 
 
-  if(mensaje.length== 0)
+
     res.status(status).send(obj);
-  else
-    res.status(status).send(mensaje);
-
 }
