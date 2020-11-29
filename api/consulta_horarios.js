@@ -10,7 +10,7 @@ module.exports = (req, res) => {
   }
   else{
     var claves=Object.keys(data);
-    if(claves.includes(ubicacion)){
+    if(claves.length==0){
       var horarios_ubicacion = data[ubicacion];
       obj[ubicacion].push(horarios_ubicacion);
       status=200;
