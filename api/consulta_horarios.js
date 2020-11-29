@@ -1,20 +1,13 @@
-const data = require('./horarios.json')
 module.exports = (req, res) => {
-  var obj = {};
-  var ubicacion = req.query;
-  if(ubicacion == undefined){
-    res.status(400).send(`Debe indicar una ubicacion para informar sobre el horario`);
+  let who = 'anonymous'
+
+  if (req.body && req.body.who) {
+    who = req.body.who
+  } else if (req.query.who) {
+    who = req.query.who
+  } else if (req.cookies.who) {
+    who = req.cookies.who
   }
-  else{
-    var claves=Object.keys(data);
-    if(claves.includes(ubicacion)){
-      var horarios_ubicacion = data[ubicacion];
-      obj[ubicacion] = horarios_ubicacion;
-    }
-    else{
-      res.status(400).send(`No hay ningun horario para esa ubicacion`);
-    }
-  }
-  res.setHeader('Content-Type','application/json'); 
-  res.status(200).json(obj);
-};
+
+  res.status(200).send(`Hello ${who}!`)
+}
