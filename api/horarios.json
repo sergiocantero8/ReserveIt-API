@@ -1,21 +1,51 @@
-{
-  "Cartuja":[
-    {
-      "finde": "9:00 - 14:00",
-      "semana": "8:00 - 21:00"
-    }
-
-  ],
-  "Armilla":[
-    {
-      "finde": "9:00 - 14:00",
-      "semana": "8:00 - 21:00"
-    }
-  ],
-  "Juventud":[
-    {
-      "finde": "11:00 - 20:00",
-      "semana": "9:00 - 23:00"
-    }
-  ]
-}
+[
+  {
+      "provincia": "Granada",
+      "ubicacion": "Padel Sport Indoor, Granada",
+      "tipo": "Pádel",
+      "precio_diurno": "25€",
+      "precio_nocturno": "36€"
+  },
+  {
+      "provincia": "Granada",
+      "ubicacion": "Estadio de la Juventud, Granada",
+      "tipo": "Pádel",
+      "precio_diurno": "4€",
+      "precio_nocturno": "8€"
+  },
+  {
+      "provincia": "Granada",
+      "ubicacion": "Estadio de la Juventud, Granada",
+      "tipo": "Fútbol 11",
+      "precio_diurno": "36€",
+      "precio_nocturno": "60€"
+  },
+  {
+      "provincia": "Granada",
+      "ubicacion": "Campus de la Cartuja, Granada",
+      "tipo": "Pádel",
+      "precio_diurno": "6,25€",
+      "precio_nocturno": "9€"
+  },
+  {
+      "provincia": "Granada",
+      "ubicacion": "Polideportivo de Armilla, Armilla",
+      "tipo": "Pádel",
+      "precio_diurno": "11€",
+      "precio_nocturno": "15€"
+  },
+  {
+      "provincia": "Jaén",
+      "ubicacion": "Padel Indoor, Jaén",
+      "tipo": "Pádel",
+      "precio_diurno": "12€",
+      "precio_nocturno": "24€"
+  },
+  {
+      "provincia": "Jaén",
+      "ubicacion": "Padel Premium, Jaén",
+      "tipo": "Pádel",
+      "precio_diurno": "15€",
+      "precio_nocturno": "30€"
+  }
+]

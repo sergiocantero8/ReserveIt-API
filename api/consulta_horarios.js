@@ -4,21 +4,21 @@ module.exports = (req, res) => {
   var ubicacion = req.query;
   let status;
   let mensaje;
+
+  var i ;
+
   if(ubicacion == undefined){
     status=400;
     mensaje=`Debe indicar una ubicacion para mostrar el horario`
   }
   else{
-    var claves=Object.keys(data);
-    if(claves.length==0){
-      var horarios_ubicacion = data[ubicacion];
-      obj[ubicacion].push(horarios_ubicacion);
+    
+      for (i=0;i<=data.length;i++) { 
+        if(data[i].ubicacion == ubicacion)
+          obj.push(data[i].ubicacion);
+      }
+
       status=200;
-    }
-    else{
-      status=400;
-      mensaje=`No hay horarios para esa pista`
-    }
   }
   res.setHeader('Content-Type','application/json'); 
 
