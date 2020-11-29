@@ -15,6 +15,7 @@ module.exports = (req, res) => {
       res.status(400).send(`No hay ningun horario para esa ubicacion`);
     }
   }
-  res.setHeader('Content-Type','application/json'); 
+
+  
   res.status(200).send(obj);
 }
