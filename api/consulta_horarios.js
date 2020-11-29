@@ -1,4 +1,4 @@
-const data = require('./horarios.json')
+const data = require("./horarios.json")
 module.exports = (req, res) => {
   var obj = {};
   var ubicacion = req.query;
@@ -9,7 +9,7 @@ module.exports = (req, res) => {
     var claves=Object.keys(data);
     if(claves.includes(ubicacion)){
       var horarios_ubicacion = data[ubicacion];
-      obj[ubicacion] = horarios_ubicacion;
+      obj[ubicacion].push(horarios_ubicacion);
     }
     else{
       res.status(400).send(`No hay ningun horario para esa ubicacion`);
@@ -17,4 +17,4 @@ module.exports = (req, res) => {
   }
   res.setHeader('Content-Type','application/json'); 
   res.status(200).send(obj);
-};
+}
