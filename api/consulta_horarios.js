@@ -1,26 +1,13 @@
-const data = require("./horarios.json")
 module.exports = (req, res) => {
-  var obj = {};
-  var ubicacion = req.query;
-  let status;
-  let mensaje;
+  let who = req.query
 
-  var i ;
-
-  if(ubicacion == undefined){
-    status=400;
-    mensaje=`Debe indicar una ubicacion para mostrar el horario`
-  }
-  else{
-    
-      for (i=0;i<data.length;i++) { 
-        if(data[i].ubicacion == ubicacion)
-          obj.push(data[i].ubicacion);
-      }
-
-      status=200;
+  if (req.body && req.body.who) {
+    who = req.body.who
+  } else if (req.query.who) {
+    who = req.query.who
+  } else if (req.cookies.who) {
+    who = req.cookies.who
   }
 
-
-    res.status(status).send(obj);
+  res.status(200).send(`Hello ${who}!`)
 }
