@@ -6,7 +6,7 @@ module.exports = (req, res) => {
   let mensaje;
   if(ubicacion == undefined){
     status=400;
-    mensaje="Debe indicar una ubicacion para mostrar el horario"
+    mensaje=`Debe indicar una ubicacion para mostrar el horario`
   }
   else{
     var claves=Object.keys(data);
@@ -17,7 +17,7 @@ module.exports = (req, res) => {
     }
     else{
       status=400;
-      mensaje="No hay horarios para esa pista"
+      mensaje=`No hay horarios para esa pista`
     }
   }
   res.setHeader('Content-Type','application/json'); 
