@@ -16,21 +16,18 @@ Para implementar mis dos funciones usando serverless he utilizado dos plataforma
 ### Netlify
 
 #### Rúbricas 1 y 2: despliegue correcto y funcionando en Netlify para despliegue continuo e ir más alla del despliegue de un ejemplo con sus issues y HU correspondiente
-Para empezar a utilizar Netlify, vas a su página web y para registrarte te la opción de hacerlo con Github para tener enlazadas las cuentas, esta es la opción que he utilizado. Tendrás que darle permiso para instalarlo en tus repositorios de Github, tras esto, importas tu proyecto con la opcion "Import from Git".
+Para empezar a utilizar Netlify, vas a su página web y para registrarte te la opción de hacerlo con Github para tener enlazadas las cuentas, esta es la opción que he utilizado. Tendrás que darle permiso para instalarlo en tus repositorios de Github, tras esto, importas tu proyecto con la opcion "Import from Git". Debemos importar el proyecto entero porque las funciones necesitan archivos que están en otras carpetas del proyecto. Al importar el proyecto, netlify automáticamente despliega las funciones que estén en la carpeta `functions` por lo que creamos la carpeta y creamos ahí la función.
 
-Tiene una interfaz web bastante intuitiva y clara pero para trabajar en local mientras desarollo la función y no tener que desplegarla cada vez que quiera ver su funcionamiento, usaré el interfaz de línea de comandos (CLI) que se instala con la orden:
-
-```
-npm install -g netlify-cli
-```
-
-Con la siguiente orden, nos desplegará la función en localhost.
-
-```
-netlify dev
-```
+Cómo los créditos en Netlify son limitados, para ir probando la función no hace faltar hacer push al repositorio cada vez que queramos probarla. Podemos ejecutarla en local con `netlify dev`.
 
 He desarrollado [una función](https://github.com/sergiocantero8/reserve-it/blob/master/functions/precio.js) que recibe una provincia, un deporte y opcionalmente un parámetro para ordenar por precio (de más barato a más caro o viceversa) y te devuelve todas las pistas deportivas del deporte indicado en la provincia dada y ordenadas por precio.
+
+#### Implementación de la función
+Antes de explicar más detalladamente la función, he creado un archivo llamada `datos_pistas.json` donde están los datos de muchas pistas de distintas provincias de Andalucía. Sus datos son la provincia, donde se ubica la pista, el tipo de pista qué es (fútbol, padel...etc) y sus precios tanto diurno como nocturno.
+
+La función empieza importando estos datos anteriormente descritos para manejarlos. Dentro del manejador de la función, he creado una función que calcula la media de precios diurnos y nocturnos para que sea mas sencillo a la hora de calcularlo. Obtenemos los parámetros que nos pase el usuario (que son provincia, tipo y opcionalmente el orden del precio) y los metemos en variables. Filtramos los parámetros del usuario con los datos de las pistas que tenemos en el json, si el resultado tiene 0 elementos significa que no hay resultados para esos parámetros y devolvemos un código 400. Calculamos todas las medias de las pistas filtradas, y después las ordenamos de más barato a más caras o viceversa dependiendo del parámetro orden del precio.
+
+Si todo ha ido correctamente, devolvemos el código de estado 200 de que todo ha ido bien y el resultado en formato JSON.
 
 #### Tests e issues/historias de usuario de la función serverless
 
