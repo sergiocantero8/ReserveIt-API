@@ -56,6 +56,11 @@ cd front-end && npm i && npm run build && cd ..
 
 Tiene más [información adicional](https://github.com/sergiocantero8/reserve-it/blob/master/docs/git_config.md) disponible sobre este proceso y la función escrita.
 
+### Vercel
+
+### Rúbrica 3: : Uso (e integración) de varias plataformas de despliegue
+Se ha añadido una simple función de ejemplo para Vercel, únicamente muestra el nombre que le pases como argumento. Se puede probar en este [enlace](https://vercel-example-xi.vercel.app/api/ejemplo_vercel.js)
+
 ## Documentación :page_facing_up:
 
 Enlaces del proyecto: 
