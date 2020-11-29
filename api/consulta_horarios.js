@@ -13,7 +13,7 @@ module.exports = (req, res) => {
   }
   else{
     
-      for (i=0;i<=data.length;i++) { 
+      for (i=0;i<data.length;i++) { 
         if(data[i].ubicacion == ubicacion)
           obj.push(data[i].ubicacion);
       }
