@@ -3,14 +3,14 @@
 class Reserva {
 
 
-    constructor(tipo, duracion, fecha, precio, id, ubicacion, usuario){
+    constructor(tipo, duracion, fecha, precio, id, ubicacion, dni_usuario){
         this.tipo = tipo;
         this.duracion = duracion;
         this.fecha= fecha;
         this.precio = precio;
         this.id = id;
         this.ubicacion = ubicacion;
-        this.usuario = usuario;
+        this.dni_usuario = dni_usuario;
 
     }
 
@@ -39,12 +39,12 @@ class Reserva {
     }
 
     get_usuario() {
-        return this.usuario;
+        return this.dni_usuario;
     }
 
     get_infocompleta(){
-        return "Tipo de pista: " + this.tipo + " Duracion: " + this.duracion + " mins"+ " Fecha: " + this.fecha + " Precio: " + this.precio + " euros" + 
-                " ID: " + this.id + " Ubicacion: " + this.ubicacion + " Usuario: " + this.usuario;
+        return {"Tipo de pista": this.tipo , " Duracion":  this.duracion ," Fecha" : this.fecha , " Precio ": this.precio,
+                " ID": this.id , " Ubicacion ": this.ubicacion , " Usuario" : this.dni_usuario};
     }
 
     set_tipo(tipo){
@@ -71,8 +71,8 @@ class Reserva {
         this.ubicacion=ubicacion;
     }
 
-    set_usuario(usuario){
-        this.usuario=usuario;
+    set_usuario(dni_usuario){
+        this.dni_usuario=dni_usuario;
     }
 }
 
