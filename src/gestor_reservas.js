@@ -29,14 +29,17 @@ class GestorReservas {
     // Todos los datos de reserva que tiene el gestor
     ver_todosdatosreserva(){
         
+        var mis_reservas=[];
         if(this.listareservas.length != 0){
             for (var i in this.listareservas) {
-                console.log(this.listareservas[i].get_infocompleta());
+                mis_reservas.push(this.listareservas[i].get_infocompleta());
             }
         }
         else{
-            console.log("No hay ninguna reserva");
+            mis_reservas.push("Error: No hay ninguna reserva");
         }
+
+        return mis_reservas;
     }
 
     // Para que un usuario pueda consultar los datos de sus reservas 
