@@ -7,3 +7,5 @@ test: test/test_cancelarPista.js
 taskfile: package.json
 
 URL: https://compara-precios.netlify.app/.netlify/functions/precio/?provincia=Ja%C3%A9n&tipo=P%C3%A1del&orden_precio=M%C3%A1s+barato
+
+make: grunt
