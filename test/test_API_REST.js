@@ -68,3 +68,23 @@ describe("Testeando la ruta /consultar_pista_libre", function(){
     
 });
 
+describe("Testeando la ruta /cancelar_reserva/:dni_usuario/:ubicacion/:fecha", function(){
+
+    
+    it('La reserva se cancela correctamente', done =>{
+        request(app)
+            .delete('/cancelar_reserva/7657474R/cartuja/octubre')
+            .expect('Content-Type', /json/)
+            .expect(200,done)
+    });
+
+    it('No se puede cancelar la reserva especificada', done =>{
+        request(app)
+            .delete('/cancelar_reserva/7657474R/cartuja/octubre')
+            .expect('Content-Type', /json/)
+            .expect(404,done)
+    });
+
+    
+});
+
