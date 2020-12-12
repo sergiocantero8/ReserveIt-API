@@ -13,7 +13,7 @@ A la hora de hacer una reserva para una pista deportiva, siempre me he preguntad
 
 ### Rúbrica 1: Justificación técnica del framework elegido para el microservicio con documentación sobre cómo se usa en la práctica.
 
-Para elegir el microframework adecuado con mi proyecto en Node, he barajado 5 microservicios que son: Express, Koa, NestJS, Sails y Hapi.
+Para elegir el microframework adecuado con mi proyecto en Node, he barajado 5 microservicios que son: Express, Koa, NestJS y  Sails.
 
 Empecemos por el más popular como es **Express**, tiene bastantes ventajas entre las que destaco:
 - Su estabilidad, al ser un microframework bastante antiguo (comparado con otros) y de los más utilizados ha madurado bastante en todo este tiempo y tiene una gran comunidad que lo respalda.
@@ -22,6 +22,23 @@ Empecemos por el más popular como es **Express**, tiene bastantes ventajas entr
 - Personalización de middlewares con Express
 
 Su desventaja principal es que no hay una única forma recomendada de hacer algo ya que express se considera a sí mismo como un marco minimalista sin supervisión. Esto te da mucha flexibilidad y poder pero al no existir una única forma recomendada de organizar las cosas, podría ser una trampa en proyectos más grandes.
+Es el microframework que he elegido, para iniciarse con el desarrollo de un microservicio como es en mi caso, Express es el que mejor se adapta a mi tipo de proyecto. 
+
+**Koa** y Express son muy parecidos (además el autor de ambos microframeworks es el mismo), Koa es muy ligero ya que sólo cuenta con 550 líneas de código y además utiliza generadores que hacen el código más legible y ordenado ya que lo hace más manejable. Comprende todas las nuevas funciones asíncronas que se pueden usar y hay muchos kits iniciales disponibles. Una gran desventaja es que Koa utiliza generadores que no son compatibles con ningún otro tipo de middleware de NodeJS.
+
+**NestJS** en contraste con Express tiene un enfoque más mínimo. NestJS integra Typescript por defecto, lo cual es una de las grandes ventajas ya que explota al máximo sus características, en concreto los decoradores ya que se basa en ellos al igual que hace Angular para definir y extender el funcionamiento de los diferentes componentes del sistema. NestJS nos abstrae la capa de API a través de decoradores específicos (@Get, @Post, @Body) asociando endpoints a funciones totalmente abstraídas del framework de API y sobre las que ya podemos incorporar test unitarios, etc. Una gran desventaja es que hay pocos ejemplos de su uso y poca documentación ya que no es tan usado como los mencionados anteriormente.
+
+**Sails.js** está diseñado para imitar el patrón MVC de marcos como Ruby on Rails, pero con soporte para los requisitos de las aplicaciones modernas: API basadas en datos con arquitectura escalable y orientada a servicios. Como ventajas tiene:
+- API basadas en datos
+- Generación sencilla de rutas/controladores
+- Patron MVC
+- Es escalables
+- Arquitectura orientada a servicios
+
+Como desventajas pondría que es más lento que Express, requiere bastante más tiempo para ejecutarse por completo. El ORM(Object Relational Mapping) es un poco limitado. 
+
+
+
 
 ### Rúbrica 3: Uso de buenas prácticas: configuración distribuida, logs, uso de middleware.
 
