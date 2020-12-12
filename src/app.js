@@ -24,7 +24,7 @@ app.use(express.json());
 
 // Inicio
 app.get('/', (req,res) => {
-    res.status(200).send("¡Bienvenido a la API de reserve-it!");
+    res.status(200).json("¡Bienvenido a la API de reserve-it!");
 });
 
 // Crea una reserva
@@ -53,7 +53,7 @@ app.get('/consultar_reservas', (req,res) => {
     var mis_reservas = gestor.ver_todosdatosreserva();
 
     if(mis_reservas.length == 0)
-        res.status(404).send("No hay ninguna reserva");
+        res.status(404).json("No hay ninguna reserva");
     else
         res.status(200).send(mis_reservas);
 
@@ -66,9 +66,9 @@ app.get('/consultar_pista_libre/:ubicacion/:fecha', (req,res) => {
     var pista_libre = gestor.ver_pistalibre(req.params.ubicacion, req.params.fecha);
 
     if(pista_libre)
-        res.status(200).send("La pista está libre ");
+        res.status(200).json("La pista está libre ");
     else
-        res.status(200).send("La pista no está libre");
+        res.status(200).json("La pista no está libre");
 
     
 });
@@ -92,3 +92,5 @@ app.delete('/cancela_reserva/:dni_usuario/:ubicacion/:fecha', function( req, res
 app.listen(app.get('port'),server_ip_address,function () {
     console.log(`La aplicacion se está ejecutando en  ` + server_ip_address + ":" +   app.get('port'));
 });
+
+module.exports = app;
