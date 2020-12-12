@@ -109,7 +109,7 @@ class GestorReservas {
         var nuevo_usuario;
         for (var i in this.listausuarios){
             if(this.listausuarios[i].get_dni()== dni_usuario)
-                nuevo_usuario= listausuarios[i];
+                nuevo_usuario= this.listausuarios[i];
                 
         }
 
