@@ -1,4 +1,4 @@
-
+/*
 const request=require('supertest');
 
 const app = require('../src/app.js');
@@ -88,3 +88,4 @@ describe("Testeando la ruta /cancelar_reserva/:dni_usuario/:ubicacion/:fecha", f
     
 });
 
+*/
