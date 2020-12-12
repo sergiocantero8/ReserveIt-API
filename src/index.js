@@ -73,7 +73,18 @@ app.get('/consultar_pista_libre/:ubicacion/:fecha', (req,res) => {
     
 });
 
+// Elimina una reserva
+app.delete('/cancela_reserva/:dni_usuario/:ubicacion/:fecha', function( req, response ) {
 
+    var cancelado=gestor.cancelar_reserva(req.params.dni_usuario, req.params.ubicacion, req.params.fecha);
+    if(cancelado)
+        res.status(200).send("La reserva se ha cancelado correctamente");
+    
+    else
+        res.status(404).send("No existe la reserva que se quiere cancelar");
+    
+
+});
 
 
 
