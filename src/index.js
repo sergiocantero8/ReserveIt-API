@@ -60,6 +60,21 @@ app.get('/consultar_reservas', (req,res) => {
     
 });
 
+// Consultar si la pista está libre a una hora y fecha determinadas
+app.get('/consultar_pista_libre/:ubicacion/:fecha', (req,res) => {
+
+    var pista_libre = gestor.ver_pistalibre(req.params.ubicacion, req.params.fecha);
+
+    if(pista_libre)
+        res.status(200).send("La pista está libre ");
+    else
+        res.status(200).send("La pista no está libre");
+
+    
+});
+
+
+
 
 
 
