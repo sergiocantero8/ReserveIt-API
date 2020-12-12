@@ -6,8 +6,8 @@ var gestor = require ('../src/gestor_reservas.js')
 
 describe('Testeando el método ver_datosreserva: ', function() {
 
-    let unusuario = new usuario.Usuario('Pepito', 'Fernandez Campos', 'pepito@gmail.com', '34657239F', '04/02/1998', 'Granada', 'España' );
-    let unareserva = new reserva.Reserva('Padel', 130, '14-10-2020', 15, '1234', 'Cartuja', unusuario.get_nombreyapellidos() );
+    let unusuario = new usuario.Usuario('Pepito', 'Fernandez Campos', '601456745', 'pepito@gmail.com', '34657239F', '04/02/1998', 'Granada', 'España' );
+    let unareserva = new reserva.Reserva('Padel', 130, '14-10-2020', 15, '1234', 'Cartuja', unusuario.get_dni() );
     let ungestor= new gestor.GestorReservas();
   
   
@@ -31,7 +31,7 @@ describe('Testeando el método ver_datosreserva: ', function() {
       ungestor.add_datosreserva(unusuario,unareserva);
       let misreservas = ungestor.ver_datosreserva(unusuario);
       
-      assert.equal(misreservas[0].get_usuario(), 'Pepito Fernandez Campos');
+      assert.equal(misreservas[0].get_usuario(), '34657239F');
     });
   
   
