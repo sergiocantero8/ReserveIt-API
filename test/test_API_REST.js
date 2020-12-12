@@ -42,4 +42,17 @@ describe("Testeando la ruta /reservar/:tipo/:duracion/:fecha/:precio/:ubicacion/
     
 });
 
+describe("Testeando la ruta /consultar_reservas con reservas", function(){
+
+    
+    it('Hay reservas almacenadas', done =>{
+        request(app)
+            .get('/consultar_reservas')
+            .expect('Content-Type', /json/)
+            .expect(200,done)
+    });
+
+    
+});
+
 
