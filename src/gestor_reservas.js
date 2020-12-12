@@ -35,9 +35,6 @@ class GestorReservas {
                 mis_reservas.push(this.listareservas[i].get_infocompleta());
             }
         }
-        else{
-            mis_reservas.push("Error: No hay ninguna reserva");
-        }
 
         return mis_reservas;
     }
@@ -52,7 +49,7 @@ class GestorReservas {
             // Si el usuario que tengo en mi lista es el mismo que quiere consultar la reserva
             if(this.listausuarios[i].get_dni() == unusuario.get_dni()){
                 for (var j in this.listareservas)
-                    if(this.listareservas[j].get_usuario() == unusuario.get_nombreyapellidos())
+                    if(this.listareservas[j].get_usuario() == unusuario.get_dni())
                         misreservas.push(this.listareservas[j]);
                 break;
             }
@@ -92,6 +89,31 @@ class GestorReservas {
         }
 
         return false;
+    }
+
+    // Método que devuelve true si el usuario tiene reservada alguna pista
+    usuario_con_reserva(dni_usuario){
+        for (var i in this.listausuarios){
+            if(this.listausuarios[i].get_dni()== dni_usuario)
+                return true;
+            else
+                return false;
+                
+        }
+    }
+
+
+    // PRE: Que el usuario esté registrado con una reserva
+    // Método que devuelve el usuario registrado
+    get_Usuario(dni_usuario){
+        var nuevo_usuario;
+        for (var i in this.listausuarios){
+            if(this.listausuarios[i].get_dni()== dni_usuario)
+                nuevo_usuario= listausuarios[i];
+                
+        }
+
+        return nuevo_usuario
     }
 }
 
