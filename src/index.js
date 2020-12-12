@@ -47,7 +47,18 @@ app.put('/reservar/:tipo/:duracion/:fecha/:precio/:ubicacion/:dni_usuario', func
 
 });
 
+// Consultar todas las reservas
+app.get('/consultar_reservas', (req,res) => {
 
+    var mis_reservas = gestor.ver_todosdatosreserva();
+
+    if(mis_reservas.length == 0)
+        res.status(404).send("No hay ninguna reserva");
+    else
+        res.status(200).send(mis_reservas);
+
+    
+});
 
 
 
