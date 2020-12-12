@@ -1,5 +1,5 @@
-/*
-const request=require('supertest');
+
+import * as request from 'supertest';
 
 const app = require('../src/app.js');
 
