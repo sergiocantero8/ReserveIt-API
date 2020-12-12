@@ -29,5 +29,17 @@ describe("Testeando la ruta /consultar_reservas vacía", function(){
     
 });
 
+describe("Testeando la ruta /reservar/:tipo/:duracion/:fecha/:precio/:ubicacion/:dni_usuario", function(){
+
+    
+    it('La pista se reserva correctamente', done =>{
+        request(app)
+            .put('/reservar/padel/120/octubre/14/cartuja/7657474R')
+            .expect('Content-Type', /json/)
+            .expect(201,done)
+    });
+
+    
+});
 
 
