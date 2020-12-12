@@ -1,7 +1,7 @@
 
-import * as request from 'supertest';
+import request from 'supertest';
 
-const app = require('../src/app.js');
+import app from '../src/app.js';
 
 describe("La api funciona correctamente", function(){
 
