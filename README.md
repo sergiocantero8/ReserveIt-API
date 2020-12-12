@@ -39,7 +39,7 @@ Como desventajas pondría que es más lento que Express, requiere bastante más 
 
 ### Rúbrica 2: Diseño en general del API, las rutas (o tareas), tipos devueltos por las peticiones y estados devueltos por las mismas, tests y documentación de todo, justificando como se ajustan a las historias de usuario, de forma que reflejen correctamente un diseño por capas que desacopla la lógica de negocio del API.
 
-La API y rutas se han diseñado en torno a las historias de usuario del proyecto, por lo que cada ruta corresponde a una historia de usuario:
+La API y rutas se han diseñado en torno a las historias de usuario del proyecto, por lo que cada ruta corresponde a una historia de usuario. El código fuente desarrollado para la API se puede visualizar en este [enlace](https://github.com/sergiocantero8/reserve-it/blob/master/src/app.js).
 
 [[HU1] - Como usuario, quiero consultar las reservas que tengo activas](https://github.com/sergiocantero8/reserve-it/issues/3)
 
@@ -106,15 +106,19 @@ app.get('/consultar_pista_libre/:ubicacion/:fecha', (req,res) => {
 
 [[HU4] - Como usuario, quiero cancelar una reserva de una pista que ya tenía reservada](https://github.com/sergiocantero8/reserve-it/issues/36)
 
-```
-app.delete('/cancela_reserva/:dni_usuario/:ubicacion/:fecha', function( req, response ) {
+Esta ruta está diseñada para cancelar una reserva que ya estaba hecha, recibe el dni del usuario que la reservó, la ubicación de la reserva y su fecha. Primeramente, busca el usuario con el dni que ha recibido por parámetro llamando al método `get_Usuario`. Después, el gestor que es la clase controladora, llama al método `cancelar_reserva` que se le pasa el usuario, la ubicación y la fecha. Dicho método cancela la reserva y devuelve true si todo ha ido correctamente, false en caso contrario. Enviamos un mensaje de que se ha cancelado correctamente con un código 200 si todo ha ido bien y un código 404 si no ha encontrado ninguna reserva para cancelar con esos datos.
 
-    var cancelado=gestor.cancelar_reserva(req.params.dni_usuario, req.params.ubicacion, req.params.fecha);
+```
+app.delete('/cancelar_reserva/:dni_usuario/:ubicacion/:fecha', function( req, res ) {
+
+    var usuario = gestor.get_Usuario(req.params.dni_usuario);
+    var cancelado=gestor.cancelar_reserva(usuario, req.params.ubicacion, req.params.fecha);
+
     if(cancelado)
-        res.status(200).send("La reserva se ha cancelado correctamente");
+        res.status(200).json("La reserva se ha cancelado correctamente");
     
     else
-        res.status(404).send("No existe la reserva que se quiere cancelar");
+        res.status(404).json("No existe la reserva que se quiere cancelar");
     
 
 });
@@ -122,7 +126,100 @@ app.delete('/cancela_reserva/:dni_usuario/:ubicacion/:fecha', function( req, res
 
 ### Rúbrica 3: Uso de buenas prácticas: configuración distribuida, logs, uso de middleware.
 
-Para el uso de logs utilizaré un middleware de Express que se llama [Morgan](https://www.npmjs.com/package/morgan). Morgan recibe dos parámetros es el `format` y el segundo `options`es el objeto. El parámetro `format` puede ser un string o una función personalizada.
+Para el uso de logs he utilizado un middleware de Express que se llama [Morgan](https://www.npmjs.com/package/morgan). Morgan recibe dos parámetros es el `format` y el segundo `options`es el objeto. El parámetro `format` puede ser un string o una función personalizada.
+Para mi API he utilizado `morgan('combined')` ya que más información que otras opciones como `dev` o `tiny` y el formato es: `:remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"`
+
+Un ejemplo de logs usando este middleware en mi proyecto son:
+```
+127.0.0.1 - - [12/Dec/2020:18:05:42 +0000] "PUT /reservar/padel/120/octubre/14/cartuja/7657474R HTTP/1.1" 201 119 "-" "curl/7.47.0"
+127.0.0.1 - - [12/Dec/2020:18:05:49 +0000] "DELETE /cancelar_reserva/7657474R/cartuja/octubre HTTP/1.1" 500 1334 "-" "curl/7.47.0"
+```
+Estos mensajes se muestran en la terminal mientras el servidor está activo.
+
+### Rúbrica 4: Tests correctos y de acuerdo con las historias de usuario.
+Para hacer los [tests de integración](https://github.com/sergiocantero8/reserve-it/blob/master/test/test_API_REST.js) he usado la librería de aserciones de npm [supertest](https://www.npmjs.com/package/supertest) ya que es muy similar a la que he usado en este proyecto como son Mocha y Chai. Cada test corresponde a una ruta de la API y una historia de usuario:
+
+Test de la ruta /consultar_reservas que corresponde a la historia de usuario: [[HU1] - Como usuario, quiero consultar las reservas que tengo activas](https://github.com/sergiocantero8/reserve-it/issues/3). Se testea que cuando se consulten las reservas, devuelva un código 404 si no ha encontrado ninguna y un codigo 200 si hay más de una. Entre medias de una y la otra se añade una reserva. 
+
+```
+describe("Testeando la ruta /consultar_reservas ", function(){
+
+    
+    it('No hay reservas almacenadas', done =>{
+        request(app)
+            .get('/consultar_reservas')
+            .expect('Content-Type', /json/)
+            .expect(404,done)
+    });
+
+        it('Hay reservas almacenadas', done =>{
+        request(app)
+            .get('/consultar_reservas')
+            .expect('Content-Type', /json/)
+            .expect(200,done)
+    });
+});
+
+ ```
+
+Test de la ruta /reservar que corresponde a la historia de usuario: [[HU2] - Como usuario, quiero reservar una pista en una fecha determinada](https://github.com/sergiocantero8/reserve-it/issues/8). Se testea que la pista se reserva correctamente, se hace una petición put y debe devolver el código 201 de que todo ha ido correctamente y se ha creado un recurso nuevo.
+
+ ```
+ describe("Testeando la ruta /reservar/:tipo/:duracion/:fecha/:precio/:ubicacion/:dni_usuario", function(){
+
+    
+    it('La pista se reserva correctamente', done =>{
+        request(app)
+            .put('/reservar/padel/120/octubre/14/cartuja/7657474R')
+            .expect('Content-Type', /json/)
+            .expect(201,done)
+    });
+
+    
+});
+```
+
+Test de la ruta /consultar_pista libre que corresponde a la historia de usuario: [[HU3] - Como usuario, quiero ver si la pista está libre a una fecha y hora determinadas](https://github.com/sergiocantero8/reserve-it/issues/9). Hace una petición de tipo get para consultar si una pista está libre a una fecha y hora que se pasan por parámetros, si todo ha ido correctamente se devuelve un código 200.
+
+```
+describe("Testeando la ruta /consultar_pista_libre", function(){
+
+    
+    it('Hay una pista libre', done =>{
+        request(app)
+            .get('/consultar_pista_libre/cartuja/14-01-2020-12:00')
+            .expect('Content-Type', /json/)
+            .expect(200,done)
+    });
+
+    
+});
+```
+
+Test de la ruta /cancelar_reserva que corresponde a la historia de usuario: [[HU4] - Como usuario, quiero cancelar una reserva de una pista que ya tenía reservada](https://github.com/sergiocantero8/reserve-it/issues/36). Se testean dos casos, el primero se hace una petición delete cuando hay una reserva con esos datos y va correctamente, en ese caso se devuelve un código 200. El otro caso, se devuelve un código 404 de que no ha encontrado ninguna reserva para cancelar con esos datos.
+
+```
+describe("Testeando la ruta /cancelar_reserva/:dni_usuario/:ubicacion/:fecha", function(){
+
+    
+    it('La reserva se cancela correctamente', done =>{
+        request(app)
+            .delete('/cancelar_reserva/7657474R/cartuja/octubre')
+            .expect('Content-Type', /json/)
+            .expect(200,done)
+    });
+
+    it('No se puede cancelar la reserva especificada', done =>{
+        request(app)
+            .delete('/cancelar_reserva/7657474R/cartuja/octubre')
+            .expect('Content-Type', /json/)
+            .expect(404,done)
+    });
+
+    
+});
+```
+
 ## Documentación del proyecto :page_facing_up:
 
 Enlaces del proyecto: 
