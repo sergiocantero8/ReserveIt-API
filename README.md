@@ -37,8 +37,88 @@ Es el microframework que he elegido, para iniciarse con el desarrollo de un micr
 
 Como desventajas pondría que es más lento que Express, requiere bastante más tiempo para ejecutarse por completo. El ORM(Object Relational Mapping) es un poco limitado. 
 
+### Rúbrica 2: Diseño en general del API, las rutas (o tareas), tipos devueltos por las peticiones y estados devueltos por las mismas, tests y documentación de todo, justificando como se ajustan a las historias de usuario, de forma que reflejen correctamente un diseño por capas que desacopla la lógica de negocio del API.
 
+La API y rutas se han diseñado en torno a las historias de usuario del proyecto, por lo que cada ruta corresponde a una historia de usuario:
 
+[[HU1] - Como usuario, quiero consultar las reservas que tengo activas](https://github.com/sergiocantero8/reserve-it/issues/3)
+
+La ruta consultar_reservas devuelve todas las reservas que se han hecho y están registradas en el sistema, si no encuentra ninguna reserva se devuelve el código 404 ya que no se encuentra el contenido solicitado. De lo contrario, devuelve el código 200 de que la solicitud ha tenido éxito y todas las reservas encontradas.
+```
+app.get('/consultar_reservas', (req,res) => {
+
+    var mis_reservas = gestor.ver_todosdatosreserva();
+
+    if(mis_reservas.length == 0)
+        res.status(404).send("No hay ninguna reserva");
+    else
+        res.status(200).send(mis_reservas);
+
+    
+});
+```
+
+[[HU2] - Como usuario, quiero reservar una pista en una fecha determinada](https://github.com/sergiocantero8/reserve-it/issues/8)
+
+Esta ruta sirve para poder reservar una pista indicando el tipo de pista, la duración de la reserva, la fecha, su precio, la ubicación y el dni del usuario. Se le asigna un id a la reserva y se crea, si el usuario está registrado en el sistema, se devuelve el usuario y la reserva es asignada al usuario. Si el usuario no está registrado, se añade un usuario con su dni para identificarlo (ya que el dni es el id del usuario) y los demás campos vacíos.
+Se devuelve un código 201 ya que se ha creado un nuevo resultado como resultado de la solicitud y se devuelven los datos de la nueva reserva.
+
+```
+// Crea una reserva
+app.put('/reservar/:tipo/:duracion/:fecha/:precio/:ubicacion/:dni_usuario', function( req, response ) {
+
+    var id = gestor.get_numreservas()+1;
+    var nueva_reserva = new Reserva(req.params.tipo,req.params.duracion,
+                      req.params.fecha,req.params.precio, id, req.params.ubicacion, req.params.dni_usuario );
+    if(gestor.usuario_con_reserva(req.params.dni_usuario)){
+        var usuario_registrado=get_Usuario(req.params.dni_usuario);
+        gestor.add_datosreserva( usuario_registrado, nueva_reserva );
+    }
+    else{
+        var usuario_sin_registrar= new Usuario('undefined', 'undefined', 'undefined', req.params.dni_usuario, 'undefined', 'undefined', 'undefined' );
+        gestor.add_datosreserva( usuario_sin_registrar, nueva_reserva );
+    }
+    
+    
+    response.status(201).json( nueva_reserva);
+
+});
+```
+
+[[HU3] - Como usuario, quiero ver si la pista está libre a una fecha y hora determinadas](https://github.com/sergiocantero8/reserve-it/issues/9)
+
+Esta ruta permite consultar si la pista que se quiera reservar está libre a la hora y fecha indicadas. La ruta recibe los parámetros de ubicacion y fecha(que incluye la hora), llama al método que comprueba si la pista está libre devolviendo true si es así y false si no lo está. Se devuelven distintos mensajes pero el código de estado es el mismo ya que la solicitud ha tenido éxito de todos modos.
+```
+// Consultar si la pista está libre a una hora y fecha determinadas
+app.get('/consultar_pista_libre/:ubicacion/:fecha', (req,res) => {
+
+    var pista_libre = gestor.ver_pistalibre(req.params.ubicacion, req.params.fecha);
+
+    if(pista_libre)
+        res.status(200).send("La pista está libre ");
+    else
+        res.status(200).send("La pista no está libre");
+
+    
+});
+
+```
+
+[[HU4] - Como usuario, quiero cancelar una reserva de una pista que ya tenía reservada](https://github.com/sergiocantero8/reserve-it/issues/36)
+
+```
+app.delete('/cancela_reserva/:dni_usuario/:ubicacion/:fecha', function( req, response ) {
+
+    var cancelado=gestor.cancelar_reserva(req.params.dni_usuario, req.params.ubicacion, req.params.fecha);
+    if(cancelado)
+        res.status(200).send("La reserva se ha cancelado correctamente");
+    
+    else
+        res.status(404).send("No existe la reserva que se quiere cancelar");
+    
+
+});
+```
 
 ### Rúbrica 3: Uso de buenas prácticas: configuración distribuida, logs, uso de middleware.
 
