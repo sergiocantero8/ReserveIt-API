@@ -55,4 +55,16 @@ describe("Testeando la ruta /consultar_reservas con reservas", function(){
     
 });
 
+describe("Testeando la ruta /consultar_pista_libre", function(){
+
+    
+    it('Hay una pista libre', done =>{
+        request(app)
+            .get('/consultar_pista_libre/cartuja/14-01-2020-12:00')
+            .expect('Content-Type', /json/)
+            .expect(200,done)
+    });
+
+    
+});
 
