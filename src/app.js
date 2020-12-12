@@ -38,7 +38,7 @@ app.put('/reservar/:tipo/:duracion/:fecha/:precio/:ubicacion/:dni_usuario', func
         gestor.add_datosreserva( usuario_registrado, nueva_reserva );
     }
     else{
-        var usuario_sin_registrar= new Usuario('undefined', 'undefined', 'undefined', req.params.dni_usuario, 'undefined', 'undefined', 'undefined' );
+        var usuario_sin_registrar= new Usuario('undefined', 'undefined', 'undefined','undefined', req.params.dni_usuario, 'undefined', 'undefined', 'undefined' );
         gestor.add_datosreserva( usuario_sin_registrar, nueva_reserva );
     }
     
@@ -74,14 +74,16 @@ app.get('/consultar_pista_libre/:ubicacion/:fecha', (req,res) => {
 });
 
 // Elimina una reserva
-app.delete('/cancela_reserva/:dni_usuario/:ubicacion/:fecha', function( req, response ) {
+app.delete('/cancelar_reserva/:dni_usuario/:ubicacion/:fecha', function( req, res ) {
 
-    var cancelado=gestor.cancelar_reserva(req.params.dni_usuario, req.params.ubicacion, req.params.fecha);
+    var usuario = gestor.get_Usuario(req.params.dni_usuario);
+    var cancelado=gestor.cancelar_reserva(usuario, req.params.ubicacion, req.params.fecha);
+
     if(cancelado)
-        res.status(200).send("La reserva se ha cancelado correctamente");
+        res.status(200).json("La reserva se ha cancelado correctamente");
     
     else
-        res.status(404).send("No existe la reserva que se quiere cancelar");
+        res.status(404).json("No existe la reserva que se quiere cancelar");
     
 
 });
