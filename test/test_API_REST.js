@@ -1,7 +1,7 @@
 
-import request from 'supertest';
+const request=require('supertest');
 
-import app from '../src/app.js';
+const app = require('../src/app.js');
 
 describe("La api funciona correctamente", function(){
 
@@ -88,4 +88,3 @@ describe("Testeando la ruta /cancelar_reserva/:dni_usuario/:ubicacion/:fecha", f
     
 });
 
-*/
